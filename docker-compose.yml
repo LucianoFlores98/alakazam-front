@@ -1,0 +1,21 @@
+services:
+  frontend:
+    build: .
+    container_name: "react"
+    ports:
+      - "3000:3000"
+    links: 
+      - bd
+  
+  bd:
+    image: postgres
+    ports:
+      - "27017:27017"
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=alakazam
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
