@@ -1,9 +1,12 @@
+import FavIcon from "./components/FavIcon"
+import { Button } from "@material-tailwind/react";
+
 function App() {
 
   return (
-    <main className="py-10 px-10 bg-gray-300 h-screen ">
-      <h1 className="font-bold text-3xl text-center">Holaaaaaaaaaa. Funciona el hot reaload?</h1>
-      <h2> SI Vamoooooooooooooooooooooooo</h2>
+    <main className="py-10 px-10 bg-gray-300 h-screen font-primaryRegular">
+      <FavIcon />
+      <Button className="bg-success ">Probando Material UI</Button>
     </main>
   )
 }
