@@ -26,9 +26,11 @@ module.exports = withMT({
         'akzm_gray': '#707070'
 			},
       fontFamily: {
+        primaryLight:['Light'],
         primaryRegular:['Regular'],
         primaryMedium:['Medium'],
         primaryBold:['Bold'],
+        sans: ["Regular", "sans-serif"],
       }
 		},
   },
