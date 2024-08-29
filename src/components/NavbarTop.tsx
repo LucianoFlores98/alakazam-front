@@ -1,4 +1,5 @@
 import SearchBar from "./SearchBar";
+import { UserDropdown } from "./UserDropdown";
 
 const NavbarTop = () => {
 
@@ -52,7 +53,8 @@ const NavbarTop = () => {
         {/**Notification */}
         <div className="block ml-3">
           <div className="inline relative">
-            {/**Dropdown User component */}        
+            {/**Dropdown User component */}
+            <UserDropdown />
           </div>
         </div>
       </div>

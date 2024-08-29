@@ -12,8 +12,8 @@ export function UserDropdown() {
   return (
     <Menu>
       <MenuHandler>
-        <div className="flex gap-3 items-center cursor-pointer border-2 border-akzm_gray p-2 rounded-full">
-          <span className="material-symbols-rounded text-4xl text-akzm_gray">
+        <div className="flex gap-3 items-center cursor-pointer border border-1 border-akzm_gray p-1 rounded-full">
+          <span className="material-symbols-rounded text-2xl text-darker">
             menu
           </span>
           <Avatar variant="circular" alt="tania andrew" className="" size="sm"
