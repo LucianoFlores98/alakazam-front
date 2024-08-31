@@ -36,7 +36,7 @@ const Location: React.FC = () => {
                 </div>
             )}
                 */}
-            <Button className='' variant='text' size='sm'><span className="material-symbols-rounded mr-2 text-primary_2">add_location_alt</span> Ubicación</Button>
+            <Button className='' variant='text' size='sm'><span className="material-symbols-rounded mr-2 text-primary_2">add_location_alt</span>Ubicación</Button>
         </div>
     );
 };
