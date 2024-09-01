@@ -11,7 +11,7 @@ const NavbarTop = () => {
 
       {/** logo*/}  
       <div className="inline-flex w-52 h-10">
-        <Link className="flex" to="/home">
+        <Link className="flex" to="/">
           <div className="w-1/2 p-0">
             <img
               src="/public/alakazam.png"
