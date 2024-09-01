@@ -1,12 +1,12 @@
-import { Button } from "@material-tailwind/react";
+import Location from "./Location";
 
 const NavbarBottom = () => {
 
   return(
-    <div className="w-full h-14 flex justify-between fixed z-20 items-center mx-auto px-8 bg-slate-50">
+    <div className="w-full h-14 flex justify-between fixed z-20 items-center mx-auto px-8 bg-light">
 
-    {/** Ubicación COMPONENTE LOCATION */} 
-      <Button className="bg-primary_2"> Ubicacion</Button>
+    {/** Ubicación COMPONENTE LOCATION */}
+      <Location />
     {/** end ubicacion*/}  
     
     {/** Filtro principal*/}  

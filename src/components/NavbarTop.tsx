@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import { UserDropdown } from "./UserDropdown";
 
 const NavbarTop = () => {
 
@@ -9,7 +11,7 @@ const NavbarTop = () => {
 
       {/** logo*/}  
       <div className="inline-flex w-52 h-10">
-        <a className="flex" href="/">
+        <Link className="flex" to="/">
           <div className="w-1/2 p-0">
             <img
               src="/public/alakazam.png"
@@ -23,7 +25,7 @@ const NavbarTop = () => {
               Alquileres e inmuebles
             </h2>
           </div>
-        </a>
+        </Link>
       </div>
     {/**end logo  */} 
 
@@ -35,16 +37,16 @@ const NavbarTop = () => {
     <div>
       <div className="flex items-center relative h-8">
         <div className="flex mr-3 items-center">
-          <a
+          <Link
             className="inline-block py-2 px-2 hover:bg-gray-200 rounded-full"
-            href="#"
+            to="/create-publication"
           >
             <div
               className="flex items-center relative cursor-pointer whitespace-nowrap text-black"
             >
               Publicá tu inmueble
             </div>
-          </a>
+          </Link>
           
         </div>
 
@@ -52,7 +54,8 @@ const NavbarTop = () => {
         {/**Notification */}
         <div className="block ml-3">
           <div className="inline relative">
-            {/**Dropdown User component */}        
+            {/**Dropdown User component */}
+            <UserDropdown />
           </div>
         </div>
       </div>

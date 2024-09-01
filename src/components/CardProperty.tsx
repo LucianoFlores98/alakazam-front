@@ -1,15 +1,17 @@
+import { Link } from 'react-router-dom';
 import FavIcon from '../components/FavIcon';
 
 interface Props {
+  id:string;
 	title: string;
 	location: string;
-	//image: string;
+	image: string;
   price: string;
   inmobiliaria:string;
 }
 
 //falta imagen
-const CardProperty: React.FC<Props> = ({ title, location, price, inmobiliaria }) => {
+const CardProperty: React.FC<Props> = ({ id, title, location, image, price, inmobiliaria }) => {
 
   return(
     <div className="relative mx-2 w-72 min-w-72 mb-2 text-darker">
@@ -22,7 +24,7 @@ const CardProperty: React.FC<Props> = ({ title, location, price, inmobiliaria })
 
             {/**Carousel Images */} 
             <div className="transition-transform duration-700 transform ease-in-out hover:scale-105 w-full">
-              <div className='absolute inset-0 bg-cover bg-blue-gray-200'
+              <div className='absolute inset-0 bg-cover' style={{backgroundImage: `url(${image})`}}
               ></div>
             </div>
   
@@ -60,7 +62,7 @@ const CardProperty: React.FC<Props> = ({ title, location, price, inmobiliaria })
   
           {/**Card Main content  */} 
           <main className="px-2 pb-2">
-
+          
             {/**Header Main content  */} 
             <header className="mt-2">
               {/**Ubicación */}
@@ -78,8 +80,8 @@ const CardProperty: React.FC<Props> = ({ title, location, price, inmobiliaria })
             </header>
 
             {/**Caracteristicas principales  */}
+              <Link to={`/publication/${id}`}>
             <main className="grid grid-cols-2 grid-rows-2 gap-1 mt-5 ml-2">
-
               {/**Caracteristica 1  */} 
               <div className="flex flex-nowrap items-center">
               <span className="material-symbols-rounded w-7 h-7 mr-1">home</span>
@@ -111,11 +113,11 @@ const CardProperty: React.FC<Props> = ({ title, location, price, inmobiliaria })
                   Requisitos Altos
                 </p>
               </div>
-
             </main>
+              </Link>
 
             {/**Footer Card container  */}
-            <a href="#" className="relative inline-block w-full">
+            <Link to="/real-state" className="relative inline-block w-full">
             <footer className="grid grid-cols-2 mt-5 h-13">
               {/** Linkeable */}
                 {/**Inmobiliaria Container */} 
@@ -160,7 +162,7 @@ const CardProperty: React.FC<Props> = ({ title, location, price, inmobiliaria })
 
                 {/** Fin Linkeable */}
               </footer>
-            </a>
+            </Link>
             {/** Fin Footer Card */}
           </main>
           {/** Fin Main content */}
