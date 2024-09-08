@@ -1,4 +1,3 @@
-// DropdownOrder.tsx
 import React from "react";
 import {
   Menu,
@@ -38,34 +37,41 @@ const OrderBy = () => {
   };
 
   return (
-    <Menu open={openMenu} handler={setOpenMenu} allowHover>
-      <MenuHandler>
-        <Button
-          variant="text"
-          className="flex items-center gap-3 text-base font-normal capitalize tracking-normal"
-        >
-          Ordenar por: {selectedValue}
-          <span className={`material-symbols-rounded text-primary_2 transition-transform ${
-              openMenu ? "rotate-180" : ""
-            }`}>keyboard_arrow_down</span>
-        </Button>
-      </MenuHandler>
-      <MenuList className="rounded-xl">
-        {menuItems.map(({ key, label }) => (
-          <MenuItem
-            key={key}
-            onClick={() => handleSelectionChange(key)}
-            className={`${
-              selectedKey === key ? "bg-primary font-bold" : ""
-            } flex items-center justify-between gap-2 px-4 py-2 rounded-lg`}
+    <div className="flex items-center gap-2">
+      <span>Ordenar Por:</span>
+      <Menu open={openMenu} handler={setOpenMenu} /* allowHover */>
+        <MenuHandler>
+          <Button
+            variant="text"
+            size="sm"
+            className="flex items-center gap-1 p-0 text-base font-normal capitalize tracking-normal bg-transparent hover:bg-transparent hover:text-primary rounded-md"
           >
-            <Typography color="blue-gray">{label}</Typography>
-            {selectedKey === key && (
-              <span className="material-symbols-rounded text-black">check</span>)}
-          </MenuItem>
-        ))}
-      </MenuList>
-    </Menu>
+            {/* Ordenar por: */ selectedValue}
+            <span
+              className={`material-symbols-rounded text-primary_2 transition-transform ${
+                openMenu ? "rotate-180" : ""
+              }`}
+            >
+              keyboard_arrow_down
+            </span>
+          </Button>
+        </MenuHandler>
+        <MenuList className="rounded-xl">
+          {menuItems.map(({ key, label }) => (
+            <MenuItem
+              key={key}
+              onClick={() => handleSelectionChange(key)}
+              // className="flex items-center justify-between gap-0 px-0 py-0 rounded-lg"
+              className={`${
+                selectedKey === key ? "bg-primary font-bold" : ""
+              } px-2 py-0 rounded-lg`}
+            >
+              <Typography color="blue-gray">{label}</Typography>
+            </MenuItem>
+          ))}
+        </MenuList>
+      </Menu>
+    </div>
   );
 };
 
