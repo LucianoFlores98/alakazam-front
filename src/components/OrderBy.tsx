@@ -58,7 +58,7 @@ const OrderBy = () => {
   // Mostrar el valor seleccionado y la flecha si no es "Recomendados"
   const selectedValue = (
     <>
-      {menuItems.find((item) => item.key === selectedKey)?.label || "Recomendados"}{" "}
+      {menuItems.find((item) => item.key === selectedKey)?.key || "Recomendados"}{" "}
       {selectedKey !== "recomendados" && directionIcon}
     </>
   );
@@ -86,7 +86,7 @@ const OrderBy = () => {
               <Typography color="blue-gray">{label}</Typography>
             </MenuItem>
           ))}
-          <hr className="my-1" />
+          <hr className="my-1 hover:border-none" />
           {directionItems.map(({ key, label }) => (
             <MenuItem
               key={key}
