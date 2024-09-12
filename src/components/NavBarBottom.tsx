@@ -1,4 +1,5 @@
 import Location from "./Location";
+import OrderBy from "./OrderBy";
 
 const NavbarBottom = () => {
 
@@ -16,6 +17,7 @@ const NavbarBottom = () => {
     {/** end filtro principal*/} 
     {/** Ordenar por  */} 
     <div className="flex items-center h-5 space-x-1 text-small">
+    <OrderBy />
 
         {/** Dropdown AKI */}
     </div>
