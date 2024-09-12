@@ -71,7 +71,7 @@ const OrderBy = () => {
           <Button
             variant="text"
             size="sm"
-            className="flex items-center gap-1 py-0 px-0.5 text-base font-normal capitalize tracking-normal bg-transparent hover:bg-transparent hover:text-primary outline-none focus:outline-none"
+            className="flex items-center gap-1 py-0 px-0.5 text-base font-normal capitalize tracking-normal  hover:text-primary_2 outline-none focus:outline-none"
           >
             {selectedValue}
           </Button>
@@ -81,7 +81,7 @@ const OrderBy = () => {
             <MenuItem
               key={key}
               onClick={() => handleSelectionChange(key)}
-              className={`${selectedKey === key ? "bg-primary font-bold" : ""} px-2 py-0`}
+              className={`${selectedKey === key ? "!bg-primary_2 !text-white" : ""} px-2 py-0`}
             >
               <Typography color="blue-gray">{label}</Typography>
             </MenuItem>
@@ -92,7 +92,7 @@ const OrderBy = () => {
               key={key}
               onClick={() => handleSelectionChange(key)}
               className={`${
-                selectedDirection === key ? "bg-primary font-bold" : ""
+                selectedDirection === key ? "!bg-primary_2 font-bold !text-white" : ""
               } px-2 py-0 ${
                 selectedKey === "recomendados" ? "opacity-50 cursor-not-allowed" : ""
               }`}
