@@ -11,7 +11,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@material-tailwind/react": "^2.1.9",
+    "@material-tailwind/react": "2.1.0",
+    "axios": "^1.7.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1",
@@ -19,7 +20,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
-    "@types/react": "18.2.42",
+    "@types/react": "18.2.19",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.20",

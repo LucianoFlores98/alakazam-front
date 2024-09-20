@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import CardProperty from "../components/CardProperty";
+import { TestingService } from "../services/testing.services";
 
 const PROPIEDADES = [
   //propiedad 1  
@@ -58,12 +60,29 @@ const PROPIEDADES = [
   ]
 
 function Home() {
+
+  const [morty, setMorty] = useState({} as any);
+  const fetchMorty = async () =>{
+    const {data} = await TestingService();
+    setMorty(data);
+  }
+  
+  useEffect(() => {
+    try {
+      fetchMorty();
+    } catch(error) {
+      console.log(error)
+    }
+  }, [])
+
   return(
     <div className="flex max-w-full flex-wrap h-max bg-gray-100">
 			{PROPIEDADES.map(({id ,title, location, image, price, inmobiliaria})=>
 			(
 				<CardProperty id={id} title={title} location={location} image={image} price={price} inmobiliaria={inmobiliaria}/>
 			))}
+
+      {JSON.stringify(morty)}
     </div>
   );
 }
