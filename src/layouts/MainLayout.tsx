@@ -7,14 +7,13 @@ interface Props {
 
 const MainLayout: React.FC<Props> = ({ children }) => {
   return (
-    <div className="layout">
+    <>
       <NavbarTop />
       <NavbarBottom />
-      <main className="bg-gray-300 h-screen font-primaryRegular pt-14">
+      <main className="bg-gray-100/80 h-screen font-primaryRegular pt-14">
         {children}
       </main>
-      <NavbarBottom />
-    </div>
+    </>
   );
 };
 

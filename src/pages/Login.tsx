@@ -1,38 +1,78 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import { Button } from "@material-tailwind/react";
+// import { useLocation, useNavigate } from "react-router-dom";
+import { Card, Input, Button, Typography} from "@material-tailwind/react";
+
+import { loginRequest } from "../services/auth";
 
 interface User {
   id: number;
   name: string;
-} 
+}
 
 interface Props {
-  user: User
+  user: User;
 }
 
-const Login: React.FC<Props> = ({user}) => {
-  const navigate = useNavigate();
-  const location = useLocation();
+const Login: React.FC<Props> = () => {
 
-  console.log(location.state)
-  console.log(location.state.from.path)
+/*   const navigate = useNavigate();
+  const location = useLocation(); */
+
+/*   console.log(location.state);
+  console.log(location.state.from.path); */
+
+  const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
+    const email = (e.currentTarget.elements[0] as HTMLInputElement).value
+    const password = (e.currentTarget.elements[1] as HTMLInputElement).value
+
+    const resLogin = await loginRequest(email,password);
+    console.log(resLogin);
+    // navigate(location.state);
+  }; 
   
-  const handleClick = () => {
-    
-    navigate(location.state)
-  }
 
-  return(
-    <div className="flex max-w-full flex-wrap h-max bg-gray-100">
-        {
-          user ? (
-            <Button onClick={handleClick}>Logout</Button>
-          ): (
-            <Button onClick={handleClick}>Login</Button>
-          )
-        } 
+  return (
+    <div className="flex justify-center items-center ">
+      <Card color="white" shadow={false} className="px-5 py-4 mt-4 ">
+        <Typography variant="h4" color="blue-gray" className="justify-center text-center">
+          Inicio de sesión
+        </Typography>
+
+        <form className="mt-6 mb-2 w-80 max-w-screen-lg sm:w-96">
+          <div className="mb-1 flex flex-col gap-6">
+            
+            <Typography variant="h6" color="blue-gray" className="-mb-3">
+              Your Email
+            </Typography>
+            <Input
+              size="lg"
+              placeholder="name@mail.com"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              labelProps={{
+                className: "before:content-none after:content-none",
+              }}
+            />
+            <Typography variant="h6" color="blue-gray" className="-mb-3">
+              Password
+            </Typography>
+            <Input
+              type="password"
+              size="lg"
+              placeholder="********"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+              labelProps={{
+                className: "before:content-none after:content-none",
+              }}
+            />
+          </div>
+          
+          <Button className="mt-6 bg-success" onClick={handleSubmit} fullWidth>
+            Ingresar
+          </Button>
+
+        </form>
+      </Card>
     </div>
   );
-}
+};
 
 export default Login;

@@ -25,7 +25,6 @@ const SearchBar = memo(() => {
     <div className="relative flex w-full max-w-[24rem] bg-white rounded-full pl-4 shadow-lg">
       <Input
         label="Buscá el alquiler de tus sueños"
-        placeholder="Buscar..."
         variant="standard"
         value={search}
         onChange={handleSearchChange}
