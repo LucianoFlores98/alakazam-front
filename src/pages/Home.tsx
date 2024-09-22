@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import CardProperty from "../components/CardProperty";
 import { TestingService } from "../services/testing.services";
 
-const PROPIEDADES = [
+/* const PROPIEDADES = [
   //propiedad 1  
   {
     id: '1',
@@ -57,7 +56,7 @@ const PROPIEDADES = [
     price: '77.000.000',
     inmobiliaria: 'Capitán Levi BR'
   },
-  ]
+  ] */
 
 function Home() {
 
@@ -77,10 +76,6 @@ function Home() {
 
   return(
     <div className="flex max-w-full flex-wrap h-max bg-gray-100">
-			{PROPIEDADES.map(({id ,title, location, image, price, inmobiliaria})=>
-			(
-				<CardProperty id={id} title={title} location={location} image={image} price={price} inmobiliaria={inmobiliaria}/>
-			))}
 
       {JSON.stringify(morty)}
     </div>

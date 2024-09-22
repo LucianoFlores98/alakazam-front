@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios"
 import { getValidationError } from "../utilities";
- 
+import { SnackbarUtilities } from "../utilities/snackbar-manager";
+
 export const AxiosInterceptor = () => {
   //Actualizamos nuestro header para que en cada petición utilice el token que le demos
   const updateHeader = (request: AxiosRequestConfig) => {
@@ -25,7 +26,8 @@ export const AxiosInterceptor = () => {
       return response;
     },
     (error) => {
-      console.log("error", getValidationError(error.code)); //Con esto manejamos los errores en el Interceptor, NO en los componentes
+      SnackbarUtilities.error(getValidationError(error.code)) //Con esto manejamos los errores en el Interceptor, NO en los componentes
+      console.log("error", error)
       return Promise.reject(error) //SI ocurre un error, MATA a la respuesta
     }
   );

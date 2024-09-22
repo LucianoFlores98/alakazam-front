@@ -1,11 +1,7 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import {
-  Card,
-  Input,
-  Button,
-  Typography,
-} from "@material-tailwind/react";
-import React from "react";
+// import { useLocation, useNavigate } from "react-router-dom";
+import { Card, Input, Button, Typography} from "@material-tailwind/react";
+
+import { loginRequest } from "../services/auth";
 
 interface User {
   id: number;
@@ -17,19 +13,22 @@ interface Props {
 }
 
 const Login: React.FC<Props> = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
 
-  console.log(location.state);
-  console.log(location.state.from.path);
+/*   const navigate = useNavigate();
+  const location = useLocation(); */
 
-  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
+/*   console.log(location.state);
+  console.log(location.state.from.path); */
+
+  const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     const email = (e.currentTarget.elements[0] as HTMLInputElement).value
     const password = (e.currentTarget.elements[1] as HTMLInputElement).value
 
-    console.log(email, password)
-    navigate(location.state);
-  };
+    const resLogin = await loginRequest(email,password);
+    console.log(resLogin);
+    // navigate(location.state);
+  }; 
+  
 
   return (
     <div className="flex justify-center items-center ">
