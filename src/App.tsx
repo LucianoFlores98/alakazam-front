@@ -1,6 +1,6 @@
 import MainLayout from "./layouts/MainLayout"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import {  HomeV, LoginV, PublicationV } from "./pages/Index"
+import {  HomeV, LoginV, PublicationV, NewPublicationV } from "./pages/Index"
 /* import { useState } from "react"
 import { Button } from "@material-tailwind/react"
  */
@@ -36,9 +36,9 @@ function App() {
             <Route path="*" element={<>NOT FOUND</>} />
             <Route path="/publication/:publicationId" element={<PublicationV />} />
             <Route path="/login" element={<LoginV />} />
+            <Route path="/new-publication" element={<NewPublicationV />} />
             {/** Rutas privadas (!!user nos resume a un boolean, si existe devuelve true, sino devuelve un false) */}
             {/* <Route element={<ProtectedRoute  isAllowed={!!user && user.permission.includes('verified')} />}>
-              <Route path="/create-publication" element={<CreatePublicationV />} />
               <Route path="/profile" element={<UserProfileV />} />
               <Route path="/real-state" element={<RealStateV />} />
             </Route> */}

@@ -1,7 +1,13 @@
 // import { useLocation, useNavigate } from "react-router-dom";
 import { Card, Input, Button, Typography} from "@material-tailwind/react";
+import { useForm, SubmitHandler } from "react-hook-form"
 
-import { loginRequest } from "../services/auth";
+// import { loginRequest } from "../services/auth";
+
+interface IFormInput {
+  email: string,
+  password: string
+}
 
 interface User {
   id: number;
@@ -20,12 +26,15 @@ const Login: React.FC<Props> = () => {
 /*   console.log(location.state);
   console.log(location.state.from.path); */
 
-  const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
-    const email = (e.currentTarget.elements[0] as HTMLInputElement).value
-    const password = (e.currentTarget.elements[1] as HTMLInputElement).value
+  const { register, handleSubmit } = useForm<IFormInput>()
 
-    const resLogin = await loginRequest(email,password);
-    console.log(resLogin);
+  const onSubmit:SubmitHandler<IFormInput> = async () => {
+    console.log("Submiteadd")
+  /*     const email = (e.currentTarget.elements[0] as HTMLInputElement).value
+    const password = (e.currentTarget.elements[1] as HTMLInputElement).value
+  */
+  /*     const resLogin = await loginRequest(email,password);
+    console.log(resLogin); */
     // navigate(location.state);
   }; 
   
@@ -37,22 +46,24 @@ const Login: React.FC<Props> = () => {
           Inicio de sesión
         </Typography>
 
-        <form className="mt-6 mb-2 w-80 max-w-screen-lg sm:w-96">
+        <form className="mt-6 mb-2 w-80 max-w-screen-lg sm:w-96" onSubmit={handleSubmit(data => console.log(data))}>
           <div className="mb-1 flex flex-col gap-6">
             
             <Typography variant="h6" color="blue-gray" className="-mb-3">
-              Your Email
+              Email
             </Typography>
             <Input
+              id="email"
               size="lg"
               placeholder="name@mail.com"
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
+              {...register('email')}
             />
             <Typography variant="h6" color="blue-gray" className="-mb-3">
-              Password
+              Contraseña
             </Typography>
             <Input
               type="password"
@@ -62,10 +73,12 @@ const Login: React.FC<Props> = () => {
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
+              {...register('password')}
+
             />
           </div>
           
-          <Button className="mt-6 bg-success" onClick={handleSubmit} fullWidth>
+          <Button className="mt-6 bg-success" type="submit" fullWidth>
             Ingresar
           </Button>
 
