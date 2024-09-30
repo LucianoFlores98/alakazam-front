@@ -23,9 +23,10 @@ import { CurrentUserRating as CurrentUserRatingType } from "../types/currentUser
 interface UserRatingProps extends React.HTMLAttributes<HTMLDivElement> {
   userRatings: UserRatingType;
   currentUserRating: CurrentUserRatingType;
+  version:string // Si viene "Mini" en versión, el componente se modifica para una versión chica donde no se peude modificar y solo se ve el promedio, las estrellas y el total de votos.
 }
 
-export function UserRating({ userRatings, currentUserRating, className }: UserRatingProps) {
+export function UserRating({ userRatings, currentUserRating, version, className }: UserRatingProps) {
   // Calificaciones sobre el usuario de la calificación. 
   const [ratings, setRatings] = useState(userRatings);
   // Calificación del usuario actual.  
@@ -102,33 +103,33 @@ export function UserRating({ userRatings, currentUserRating, className }: UserRa
   }
 
   return (
-      <section className={`${className} flex flex-col w-[17rem] gap-2 transition-all`}>
+      <section className={`${className} flex flex-col w-[17rem] gap-2 transition-all select-none`}>
         {/* Sección promedio y estrellas de clasificación.*/}
-        <div className="flex items-center gap-4 font-bold">
-          <Typography className="font-extrabold text-5xl text-primary">
+        <div className={`flex items-center ${version === "mini" ? "gap-2" : "gap-4"} font-bold`}>
+          <Typography className={`font-extrabold ${version === "mini" ? "text-md" : "text-5xl"} text-primary`}>
             {ratings.totalVotes > 0 ? ratings.average : "N/A"}
           </Typography>
-          <div className="flex flex-col grow">
+        <div className={`flex ${version === "mini" ? "items-center gap-4" : "flex-col grow"}`}>
             <span className="grow">
               {
                 ratings.average && (
                   // El componente Rating solo acepta números enteros en su valor.
                   <Rating
-                  
-                  value={Math.trunc(ratings.average)}
-                  onChange={(value) => rateUser(value)}
-                  ratedIcon={getIcons(true, currentRating.voteValue ? "text-primary_2" : "text-primary")}
-                  unratedIcon={getIcons(false, currentRating.voteValue ? "text-primary_2" : "text-primary")} />
+                    value={Math.trunc(ratings.average)}
+                    readonly={version === "mini" ? true : false}
+                    onChange={(value) => rateUser(value)}
+                    ratedIcon={getIcons(true, currentRating.voteValue ? "text-primary_2" : "text-primary")}
+                    unratedIcon={getIcons(false, currentRating.voteValue ? "text-primary_2" : "text-primary")} />
                 )
               }
             </span>
-            <Typography className="font-medium text-sm ms-1 mt-[-0.5rem] text-dark">
+            <Typography className={`font-medium text-sm ${version === "mini" ? "" : "ms-1 mt-[-0.5rem]"} text-dark`}>
               {ratings.totalVotes > 0 ? `${ratings.totalVotes} votos` : "Sin votos"}
             </Typography>
           </div>
         </div>
-        {/* Sección de las barras de votos*/ }
-        <div className="grow flex flex-col">
+        {/* Sección de las barras de votos, se oculta en la versión mini.*/ }
+        <div className={`grow flex flex-col ${version === "mini" ? "hidden" : ""}`}>
           <span className="flex items-center gap-1">
           <Progress className="saturate-0" variant="gradient" color="blue-gray" value={ratings[5] / (ratings.totalVotes / 100)} size="sm" />
             <Typography className="font-small text-xs text-akzm_gray">5</Typography>
