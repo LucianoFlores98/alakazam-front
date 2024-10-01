@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+/* import { useEffect, useState } from "react";
 import { TestingService } from "../services/testing.services";
-
+ */
 /* const PROPIEDADES = [
   //propiedad 1  
   {
@@ -14,7 +14,7 @@ import { TestingService } from "../services/testing.services";
   //propiedad 2
   {
     id: '2',
-    title: 'Casa en La Eugenia',
+    title: 'Tipo de inmueble',
     location: 'Casa 180, Ruta 105',
     image: 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     price: '780.000',
@@ -23,7 +23,7 @@ import { TestingService } from "../services/testing.services";
   //propiedad 3  
   {
     id: '3',
-    title: 'Dpto en Aguacates',
+    title: 'Cantidad de habitaciones',
     location: 'Alberdi, Posadas',
     image: 'https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     price: '1.250.000',
@@ -58,9 +58,13 @@ import { TestingService } from "../services/testing.services";
   },
   ] */
 
+import { BookingCard } from "../components/BookingCard";
+import { SidebarWithBurgerMenu } from "../components/SidebarWithBurgerMenu";
+import OrderBy from "../components/OrderBy";
+
 function Home() {
 
-  const [morty, setMorty] = useState({} as any);
+/*   const [morty, setMorty] = useState({} as any);
   const fetchMorty = async () =>{
     const {data} = await TestingService();
     setMorty(data);
@@ -72,12 +76,22 @@ function Home() {
     } catch(error) {
       console.log(error)
     }
-  }, [])
+  }, []) */
 
   return(
-    <div className="flex max-w-full flex-wrap h-max bg-gray-100">
+    <div className="max-w-full bg-gray-100 pt-2 mx-auto">
+      <div className="flex justify-end pr-6 gap-4 mb-2">
+        <SidebarWithBurgerMenu  />
+        <OrderBy />
+      </div>
+      <main className="flex flex-wrap gap-2 pl-2">
+        <BookingCard />
+        <BookingCard />
+        <BookingCard />
+        <BookingCard />
+        <BookingCard />
+      </main>
 
-      {JSON.stringify(morty)}
     </div>
   );
 }

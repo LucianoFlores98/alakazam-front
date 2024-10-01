@@ -7,8 +7,11 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import { useAuthStore } from "../store/auth";
 
 export function UserDropdown() {
+
+  const logout = useAuthStore(state => state.logout)
 
   return (
     <Menu>
@@ -71,7 +74,9 @@ export function UserDropdown() {
         <MenuItem className="flex items-center justify-start gap-2 group">
           <span className="material-symbols-rounded text-gray-500 group-hover:text-danger transition-all ">logout</span>
           <Typography variant="small" className="font-medium text-akzm_gray group-hover:text-danger transition-all">
-            Cerrar sesión
+            <button onClick={logout}>
+              Cerrar sesión
+            </button>
           </Typography>
         </MenuItem>
 

@@ -1,5 +1,5 @@
 import axios from "axios"
 
 export const TestingService = () => {
-  return axios.get("https://rickaewadi.com/api/character/02")
+  return axios.get("https://rickandmortyapi.com/api/character/547")
 }

@@ -1,4 +1,22 @@
-import { Navigate, useLocation, Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+
+interface Props {
+  isAllowed: boolean;
+  children: React.ReactNode;
+  redirectTo?: string;
+}
+
+export const ProtectedRoute = ({
+  isAllowed,
+  children,
+  redirectTo = "/login",
+}: Props) => {
+  if (!isAllowed) return <Navigate to={redirectTo} />;
+  return children ? children : <Outlet />;
+};
+
+
+/* import { Navigate, useLocation, Outlet } from "react-router-dom";
 
 interface Props {
   children?: React.ReactNode; //el ? indica que no necesariamente se puede recibir un children
@@ -18,4 +36,4 @@ const ProtectedRoute: React.FC<Props> = ({ isAllowed, children }) => {
   return children ? children : <Outlet />
 }
 
-export default ProtectedRoute
+export default ProtectedRoute */
