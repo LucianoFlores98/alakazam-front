@@ -1,4 +1,6 @@
 import { useParams } from "react-router-dom";
+import { PropertyCaroussel } from "../components/PropertyCaroussel";
+import { realStatePropertyDummyData } from "../data/realStateProperty";
 
 function Publication() {
 
@@ -6,9 +8,12 @@ function Publication() {
   const {publicationId} = useParams()
   
   return(
-    <div className="flex max-w-full flex-wrap h-max bg-gray-100">
-      <h2>Publicacion {publicationId}</h2>
-    </div>
+    <>
+      <PropertyCaroussel realEstateProperty={realStatePropertyDummyData}/>
+      <div className="flex max-w-full flex-wrap h-max bg-gray-100">
+        <h2>Publicacion {publicationId}</h2>
+      </div>
+    </>
   );
 }
 
