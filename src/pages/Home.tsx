@@ -14,7 +14,7 @@ import { TestingService } from "../services/testing.services";
   //propiedad 2
   {
     id: '2',
-    title: 'Casa en La Eugenia',
+    title: 'Tipo de inmueble',
     location: 'Casa 180, Ruta 105',
     image: 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     price: '780.000',
@@ -23,7 +23,7 @@ import { TestingService } from "../services/testing.services";
   //propiedad 3  
   {
     id: '3',
-    title: 'Dpto en Aguacates',
+    title: 'Cantidad de habitaciones',
     location: 'Alberdi, Posadas',
     image: 'https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     price: '1.250.000',
