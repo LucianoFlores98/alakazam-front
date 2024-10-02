@@ -16,7 +16,7 @@ import {
 } from "@material-tailwind/react";
 
  
-export function SidebarWithBurgerMenu() {
+export function FilterSideBar() {
   const [open, setOpen] = React.useState(0);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
  
@@ -26,15 +26,21 @@ export function SidebarWithBurgerMenu() {
  
   const openDrawer = () => setIsDrawerOpen(true);
   const closeDrawer = () => setIsDrawerOpen(false);
+
+  const getDrawerIcon = (isDrawerOpen: boolean) =>
+    isDrawerOpen ? "close" : "filter_alt";
  
   return (
     <>
       <IconButton variant="text" size="lg" onClick={openDrawer}>
-        {isDrawerOpen ? (
+        <span className="material-symbols-rounded h-8 w-8 stroke-2 flex items-center justify-center">
+          {getDrawerIcon(isDrawerOpen)}
+        </span>
+        {/* {isDrawerOpen ? (
           <span className="material-symbols-rounded h-8 w-8 stroke-2 flex items-center justify-center">close</span>
         ) : (
           <span className="material-symbols-rounded h-8 w-8 stroke-2 flex items-center justify-center">filter_alt</span>
-        )}
+        )} */}
       </IconButton>
       <Drawer open={isDrawerOpen} onClose={closeDrawer}>
         <Card
