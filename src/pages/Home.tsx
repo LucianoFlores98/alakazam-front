@@ -59,7 +59,8 @@ import { TestingService } from "../services/testing.services";
   ] */
 
 import { BookingCard } from "../components/BookingCard";
-import { SidebarWithBurgerMenu } from "../components/SidebarWithBurgerMenu";
+import { FilterSideBar } from "../components/FilterSideBar";
+import { FiltroPrueba } from "../components/FiltroPrueba";
 import OrderBy from "../components/OrderBy";
 
 function Home() {
@@ -81,7 +82,8 @@ function Home() {
   return(
     <div className="max-w-full bg-gray-100 pt-2 mx-auto">
       <div className="flex justify-end pr-6 gap-4 mb-2">
-        <SidebarWithBurgerMenu  />
+        <FiltroPrueba />
+        <FilterSideBar  />
         <OrderBy />
       </div>
       <main className="flex flex-wrap gap-2 pl-2">
