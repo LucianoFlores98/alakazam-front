@@ -9,7 +9,7 @@ import { realStatePropertyDummyData } from "./data/realStateProperty";
 */
 
 import React from "react";
-import { Button } from "@material-tailwind/react";
+import { Button, Typography } from '@material-tailwind/react';
 import { RealEstateProperty as RealStatePropertyType } from "../types/realStateProperty";
 import { UserRating } from "./UserRating";
 
@@ -117,22 +117,58 @@ export function PropertyCaroussel({ realEstateProperty }: PropertyCarousselProps
   return (
     <div className="max-w-[1000px] m-auto">
       {/* Título y datos */}
-      <div className="flex items-center my-4 gap-4 justify-between">
+{/*       <div className="flex items-center my-4 gap-4 justify-between">
+
         <div className="flex flex-col ">
-            <h1 className="text-4xl font-black text-darker">{realEstateProperty.name}</h1>
+            <h1 className="text-4xl font-black text-darker"></h1>
             <div className="flex items-center gap-1">
               <span className="material-symbols-rounded me-0.5 text-3xl text-akzm_red_variant" >
                 location_on
               </span>
-              <h6 className="text-dark">{realEstateProperty.location}</h6>
-              <h6 className="text-akzm_orange ms-2">{realEstateProperty.propertyStatus}</h6>
+              <h4 className="text-dark">{realEstateProperty.location}</h4>
+              <Typography className="text-success ms-2">{realEstateProperty.propertyStatus}</Typography>
             </div>
         </div>
-        <UserRating userRatings={realEstateProperty.userRating} version="mini" currentUserRating={{voteValue:0}}/>
+
+        <div className="flex flex-col">
+          <UserRating userRatings={realEstateProperty.userRating} version="mini" currentUserRating={{voteValue:0}}/>
+        </div>
+      </div> */}
+
+      <div className="container mx-auto">
+        {/* <!-- Fila 1 --> */}
+        <div className="flex">
+          {/* <!-- Elemento 1 --> */}
+          <div className="  w-3/4">
+            <Typography variant="h2">{realEstateProperty.name}</Typography>
+          </div>
+          {/* <!-- Elemento 3 --> */}
+          <div className=" inline-flex whitespace-nowrap w-1/4 justify-end">
+            <Typography className="text-success ms-2">{realEstateProperty.propertyStatus}</Typography>
+          </div>
+        </div>
+
+        {/* <!-- Fila 2 --> */}
+        <div className="mt-2 flex ">
+          {/* <!-- Elemento 2 --> */}
+          <div className="w-8/12 flex items-end">
+            <div className="inline-flex items-center">
+              <span className="material-symbols-rounded me-0.5 text-3xl text-akzm_red_variant" >location_on</span>
+              <Typography className="text-dark">{realEstateProperty.location}</Typography>
+            </div>
+          </div>
+          {/* <!-- Elemento 4 --> */}
+          <div className="flex items-end w-4/12">
+            <div className="inline-flex items-end">
+              <UserRating userRatings={realEstateProperty.userRating} version="mini" currentUserRating={{voteValue:0}}/>
+            </div>
+          </div>
+        </div>
       </div>
+      
 
       {/* Carrusel y galería */}
-      <div className="flex flex-col gap-4  select-none">        
+      <div className="flex flex-col select-none">        
         {/* Carrusel */}
         <div className="relative">
           <Button className="bg-gray-100/80 w-16 h-16 rounded-full shadow-none hover:shadow-none !absolute top-1/2 transform -translate-y-1/2 p-0 text-dark flex items-center justify-center" 
@@ -143,7 +179,7 @@ export function PropertyCaroussel({ realEstateProperty }: PropertyCarousselProps
           </Button>
           
           <img
-            className="h-auto w-full max-w-full rounded-lg object-contain object-center md:h-[560px]"
+            className="h-auto w-full max-w-full rounded-lg object-contain object-center"
             src={propertyImages[activeIndex]}
             alt=""
           />
@@ -157,7 +193,7 @@ export function PropertyCaroussel({ realEstateProperty }: PropertyCarousselProps
         </div>
 
         {/* Galería */}
-        <div className="relative px-4 flex gap-4 w-full scroll-smooth snap-x">
+        <div className="relative px-4 flex w-full scroll-smooth snap-x">
           <Button
             className="bg-gray-300 opacity-80 rounded-full !absolute top-1/2 transform -translate-y-1/2 left-1 p-0 text-dark w-10 h-10 flex items-center justify-center"
             onClick={scrollGalleryLeft}>
@@ -166,13 +202,13 @@ export function PropertyCaroussel({ realEstateProperty }: PropertyCarousselProps
             </span>
           </Button>
           
-          <div ref={containerRef} className="flex gap-4 px-4 overflow-x-hidden w-full">
+          <div ref={containerRef} className="flex gap-2 px-4 overflow-x-hidden w-full">
             {propertyImages.map((imageLink, index) => (
               <div ref={element => imageRefs.current[index] = element} key={index} className="my-2 px-0 w-32 h-20 min-w-[80px] flex-shrink-0 scroll-mx-2 snap-start">
                 <img
                   onClick={() => updateImage(index)}
                   src={imageLink}
-                  className={`h-full w-full cursor-pointer rounded-lg object-contain object-center ${index == activeIndex ? "outline outline-offset-2  outline-4 outline-akzm_orange" : ""}`}
+                  className={`h-full w-full cursor-pointer rounded-md object-contain object-center ${index == activeIndex ? "outline outline-offset-1 outline-3 outline-primary" : ""}`}
                   alt="gallery-image"
                 />
               </div>

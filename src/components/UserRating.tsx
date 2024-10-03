@@ -23,7 +23,7 @@ import { CurrentUserRating as CurrentUserRatingType } from "../types/currentUser
 interface UserRatingProps extends React.HTMLAttributes<HTMLDivElement> {
   userRatings: UserRatingType;
   currentUserRating: CurrentUserRatingType;
-  version:string // Si viene "Mini" en versión, el componente se modifica para una versión chica donde no se peude modificar y solo se ve el promedio, las estrellas y el total de votos.
+  version?:string // Si viene "Mini" en versión, el componente se modifica para una versión chica donde no se peude modificar y solo se ve el promedio, las estrellas y el total de votos.
 }
 
 export function UserRating({ userRatings, currentUserRating, version, className }: UserRatingProps) {
@@ -105,11 +105,11 @@ export function UserRating({ userRatings, currentUserRating, version, className 
   return (
       <section className={`${className} flex flex-col w-[17rem] gap-2 transition-all select-none`}>
         {/* Sección promedio y estrellas de clasificación.*/}
-        <div className={`flex items-center ${version === "mini" ? "gap-2" : "gap-4"} font-bold`}>
+        <div className={`flex items-center ${version === "mini" ? "gap-1" : "gap-4"} font-bold`}>
           <Typography className={`font-extrabold ${version === "mini" ? "text-md" : "text-5xl"} text-primary`}>
             {ratings.totalVotes > 0 ? ratings.average : "N/A"}
           </Typography>
-        <div className={`flex ${version === "mini" ? "items-center gap-4" : "flex-col grow"}`}>
+        <div className={`flex ${version === "mini" ? "items-center gap-2" : "flex-col grow"}`}>
             <span className="grow">
               {
                 ratings.average && (
@@ -123,8 +123,8 @@ export function UserRating({ userRatings, currentUserRating, version, className 
                 )
               }
             </span>
-            <Typography className={`font-medium text-sm ${version === "mini" ? "" : "ms-1 mt-[-0.5rem]"} text-dark`}>
-              {ratings.totalVotes > 0 ? `${ratings.totalVotes} votos` : "Sin votos"}
+            <Typography className={`font-medium text-xs ${version === "mini" ? "" : "ms-1 mt-[-0.5rem]"} text-dark`}>
+              {ratings.totalVotes > 0 ? `(${ratings.totalVotes} votos)` : "Sin votos"}
             </Typography>
           </div>
         </div>
