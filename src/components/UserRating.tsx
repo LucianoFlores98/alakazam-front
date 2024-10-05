@@ -103,13 +103,13 @@ export function UserRating({ userRatings, currentUserRating, version, className 
   }
 
   return (
-      <section className={`${className} flex flex-col w-[17rem] gap-2 transition-all select-none`}>
+      <section className={`${className} flex flex-col max-w-[17rem] min-w-[14rem] gap-1 transition-all select-none`}>
         {/* Sección promedio y estrellas de clasificación.*/}
-        <div className={`flex items-center ${version === "mini" ? "gap-1" : "gap-4"} font-bold`}>
-          <Typography className={`font-extrabold ${version === "mini" ? "text-md" : "text-5xl"} text-primary`}>
+        <div className={`flex items-center ${version === "mini" ? "gap-1" : "gap-0"} font-bold`}>
+          <Typography color="amber" textGradient className={`font-extrabold ${version === "mini" ? "text-md" : "text-5xl pl-2"}`}>
             {ratings.totalVotes > 0 ? ratings.average : "N/A"}
           </Typography>
-        <div className={`flex ${version === "mini" ? "items-center gap-2" : "flex-col grow"}`}>
+        <div className={`flex ${version === "mini" ? "items-center gap-2" : "flex-col grow pr-1"} text-center`}>
             <span className="grow">
               {
                 ratings.average && (
@@ -118,12 +118,12 @@ export function UserRating({ userRatings, currentUserRating, version, className 
                     value={Math.trunc(ratings.average)}
                     readonly={version === "mini" ? true : false}
                     onChange={(value) => rateUser(value)}
-                    ratedIcon={getIcons(true, currentRating.voteValue ? "text-primary_2" : "text-primary")}
-                    unratedIcon={getIcons(false, currentRating.voteValue ? "text-primary_2" : "text-primary")} />
+  /*                   ratedIcon={getIcons(true, currentRating.voteValue ? "text-primary_2" : "text-primary")}
+                    unratedIcon={getIcons(false, currentRating.voteValue ? "text-primary_2" : "text-primary")}  *//>
                 )
               }
             </span>
-            <Typography className={`font-medium text-xs ${version === "mini" ? "" : "ms-1 mt-[-0.5rem]"} text-dark`}>
+            <Typography size="sm" className={`font-medium ${version === "mini" ? "" : " mt-[-0.5rem]"} text-center`}>
               {ratings.totalVotes > 0 ? `(${ratings.totalVotes} votos)` : "Sin votos"}
             </Typography>
           </div>
