@@ -1,5 +1,4 @@
 import NavbarTop from "../components/NavbarTop";
-import NavbarBottom from "../components/NavBarBottom";
 
 interface Props {
   children: React.ReactNode;
@@ -7,13 +6,12 @@ interface Props {
 
 const MainLayout: React.FC<Props> = ({ children }) => {
   return (
-    <div className="layout">
+    <>
       <NavbarTop />
-      <main className="bg-gray-300 h-screen font-primaryRegular">
+      <main className="bg-gray-100/80 font-primaryRegular">
         {children}
       </main>
-      <NavbarBottom />
-    </div>
+    </>
   );
 };
 

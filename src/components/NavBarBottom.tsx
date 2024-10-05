@@ -1,12 +1,13 @@
-import { Button } from "@material-tailwind/react";
+import Location from "./Location";
+import OrderBy from "./OrderBy";
 
 const NavbarBottom = () => {
 
   return(
-    <div className="w-full h-14 flex justify-between fixed z-20 items-center mx-auto px-8 bg-slate-50">
+    <div className="w-full h-14 flex justify-between fixed z-20 items-center mx-auto px-8 bg-light">
 
-    {/** Ubicación COMPONENTE LOCATION */} 
-      <Button className="bg-primary_2"> Ubicacion</Button>
+    {/** Ubicación COMPONENTE LOCATION */}
+      <Location />
     {/** end ubicacion*/}  
     
     {/** Filtro principal*/}  
@@ -16,6 +17,7 @@ const NavbarBottom = () => {
     {/** end filtro principal*/} 
     {/** Ordenar por  */} 
     <div className="flex items-center h-5 space-x-1 text-small">
+    <OrderBy />
 
         {/** Dropdown AKI */}
     </div>

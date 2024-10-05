@@ -1,44 +1,44 @@
-import { Button } from '@material-tailwind/react';
+import React from "react";
+import {
+    Button,
+    Dialog,
+    Card,
+    CardBody,
+    CardFooter,
+    Typography,
+    Input,
+} from "@material-tailwind/react";
 
-const Location: React.FC = () => {
-    /**const [isPopupOpen, setPopupOpen] = useState(false);
-
-    const openPopup = () => setPopupOpen(true);
-    const closePopup = () => setPopupOpen(false);*/
+export function Location() {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen((cur) => !cur);
 
     return (
-        <div className="relative"> 
-
-
-        {/** 
-            <button
-                onClick={openPopup} 
-                className="bg-green-500 text-white p-2 rounded hover:bg-green-700"
+        <>
+            <Button className='' variant='text' size='sm' onClick={handleOpen}><span className="material-symbols-rounded mr-2 text-primary_2">add_location_alt</span>Ingresar ubicación</Button>
+            <Dialog
+                size="xs"
+                open={open}
+                handler={handleOpen}
+                className="bg-transparent shadow-none"
             >
-                Abrir Popup
-            </button>
-            {isPopupOpen && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                    <div className="bg-white p-6 rounded-lg shadow-lg w-80">
-                        <h2 className="text-lg font-bold mb-4">Buscar Ubicación</h2>
-                        <input
-                            type="text"
-                            placeholder="Ingrese nombre de ubicación"
-                            className="w-full p-2 border border-gray-300 rounded mb-4"
-                        />
-                        <button
-                            onClick={closePopup}
-                            className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700"
-                        >
-                            Cerrar
-                        </button>
-                    </div>
-                </div>
-            )}
-                */}
-            <Button className='' variant='text'><span className="material-symbols-rounded mr-2 text-primary_2">add_location_alt</span> Ubicacion</Button>
-        </div>
+                <Card className="mx-auto w-96 bg-gradient-to-b from-deep-orange-200 to-white">
+                    <CardBody className="flex flex-col gap-4">
+                        <Typography variant="h4" color="blue-gray">
+                            Ingresar Ubicacion
+                        </Typography>
+                        <Input label="Ubicación" size="lg" />
+                        <img src="https://a.storyblok.com/f/117609/2028x1242/eb3996dc4a/integrating-google-maps-react.png" alt="" />
+                    </CardBody>
+                    <CardFooter className="pt-0">
+                        <Button className="bg-primary_2" onClick={handleOpen} fullWidth>
+                            Seleccionar Ubicación
+                        </Button>
+                    </CardFooter>
+                </Card>
+            </Dialog>
+        </>
     );
-};
+}
 
 export default Location;
