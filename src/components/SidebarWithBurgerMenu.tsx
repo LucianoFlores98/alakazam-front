@@ -31,7 +31,9 @@ export function SidebarWithBurgerMenu() {
     <>
       <IconButton variant="text" size="lg" onClick={openDrawer}>
         {isDrawerOpen ? (
-          <span className="material-symbols-rounded h-8 w-8 stroke-2 flex items-center justify-center">close</span>
+          <>
+            <span className="material-symbols-rounded h-8 w-8 stroke-2 flex items-center justify-center">close</span>
+          </>
         ) : (
           <span className="material-symbols-rounded h-8 w-8 stroke-2 flex items-center justify-center">filter_alt</span>
         )}

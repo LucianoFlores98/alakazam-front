@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { UserDropdown } from "./UserDropdown";
+import { useAuthStore } from "../store/auth";
+import { NotificationsMenu } from "./NotificationsMenu";
 
 const NavbarTop = () => {
+
+  const isAuth = useAuthStore(state => state.isAuth)
 
   return(
     <nav
@@ -22,7 +26,7 @@ const NavbarTop = () => {
           <div className="leading-3">
             <h1 className="font-bold text-xl text-primary_2 ml-2" >Alakazam</h1>
             <h2 className="text-sm w-full text-nowrap text-gray-700/80 font-normal">
-              Alquileres e inmuebles
+              Ecosistema Inmobiliario
             </h2>
           </div>
         </Link>
@@ -37,21 +41,31 @@ const NavbarTop = () => {
     <div>
       <div className="flex items-center relative h-8">
         <div className="flex mr-3 items-center">
-          <Link
-            className="inline-block py-2 px-2 hover:bg-gray-200 rounded-full"
-            to="/create-publication"
-          >
-            <div
-              className="flex items-center relative cursor-pointer whitespace-nowrap text-black"
-            >
-              Publicá tu inmueble
-            </div>
-          </Link>
+          {isAuth ? (
+            <Link className="inline-block py-2 px-2 hover:bg-gray-200 rounded-full" to="/new-publication">
+              <div
+                className="flex items-center relative cursor-pointer whitespace-nowrap text-black">
+                Publicá tu inmueble
+              </div>
+            </Link>
+          ) : (
+            <Link className="inline-block py-2 px-2 hover:bg-gray-200 rounded-full" to="/login">
+              <div
+                className="flex items-center relative cursor-pointer whitespace-nowrap text-black">
+                Publicá tu inmueble
+              </div>
+            </Link>
+          )}
+          
           
         </div>
 
-        {/**Divisor */}
-        {/**Notification */}
+        {/** DIVISOR */}
+        {isAuth && <span className="h-6 border-l border-gray-300 mr-1"></span>}
+
+
+        {/**Notificationes */}
+        {isAuth &&<NotificationsMenu/>}
         <div className="block ml-3">
           <div className="inline relative">
             {/**Dropdown User component */}

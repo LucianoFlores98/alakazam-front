@@ -15,14 +15,17 @@ export function Location() {
 
     return (
         <>
-            <Button className='' variant='text' size='sm' onClick={handleOpen}><span className="material-symbols-rounded mr-2 text-primary_2">add_location_alt</span>Ingresar ubicación</Button>
+            <Button className='items-center inline-flex' variant='text' size='sm' onClick={handleOpen}>
+                <span className="material-symbols-rounded mr-2 text-primary_2 ">add_location_alt</span>
+                Ingresar ubicación
+            </Button>
             <Dialog
                 size="xs"
                 open={open}
                 handler={handleOpen}
                 className="bg-transparent shadow-none"
             >
-                <Card className="mx-auto w-96 bg-gradient-to-b from-deep-orange-200 to-white">
+                <Card className="mx-auto w-96">
                     <CardBody className="flex flex-col gap-4">
                         <Typography variant="h4" color="blue-gray">
                             Ingresar Ubicacion

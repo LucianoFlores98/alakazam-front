@@ -61,6 +61,8 @@ import { TestingService } from "../services/testing.services";
 import { BookingCard } from "../components/BookingCard";
 import { SidebarWithBurgerMenu } from "../components/SidebarWithBurgerMenu";
 import OrderBy from "../components/OrderBy";
+import { PublicySlider } from "../components/PublicySlider";
+import Location from "../components/Location";
 
 function Home() {
 
@@ -80,11 +82,19 @@ function Home() {
 
   return(
     <div className="max-w-full bg-gray-100 pt-2 mx-auto">
-      <div className="flex justify-end pr-6 gap-4 mb-2">
-        <SidebarWithBurgerMenu  />
-        <OrderBy />
+      <PublicySlider />
+      <div className="flex justify-between pr-6 gap-4 mb-2 mt-2">
+        <div>
+          <Location />
+        </div>
+
+        <div className="flex gap-4">
+          <SidebarWithBurgerMenu />
+          <OrderBy />
+        </div>
       </div>
       <main className="flex flex-wrap gap-2 pl-2">
+
         <BookingCard />
         <BookingCard />
         <BookingCard />
