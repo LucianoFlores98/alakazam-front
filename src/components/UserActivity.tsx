@@ -1,3 +1,5 @@
+import { Button, Typography } from "@material-tailwind/react";
+
 const UserActivity: React.FC = () => {
 
   const activities = [
@@ -13,19 +15,18 @@ const UserActivity: React.FC = () => {
     <div className='p-4 max-w-xl'>
 
       <div className='flex justify-between items-center mb-4'>
-        <h4 className='text-red-400 text-lg font-semibold'>Actividad reciente</h4>
-        <button className='text-red-400 text-sm font-medium'>Ordenar por: Más nuevos</button>
+        <Typography variant="h6" className='text-darker font-semibold'>Actividad reciente</Typography>
       </div>
       
-      <div className='border border-red-200 rounded-lg px-2 py-2'>
+      <div className='border border-darker/50 rounded-lg px-2 py-2'>
         {activities.map((item, index) => (
           <div key={index} className='mb-2'>
 
-            <span className='text-gray-600 font-medium mr-2'>{item.fecha}</span>
-            <span className='text-gray-800'>{item.actividad} </span>
+            <span className='text-danger font-medium mr-2'>{item.fecha}</span>
+            <span className='text-dark'>{item.actividad} </span>
 
             {item.link && (
-              <a href="#" className='text-blue-500 hover:underline'>
+              <a href="#" className='text-info hover:underline'>
                 {item.link}
               </a>
             )}

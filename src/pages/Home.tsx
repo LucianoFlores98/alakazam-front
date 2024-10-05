@@ -81,7 +81,7 @@ function Home() {
   }, []) */
 
   return(
-    <div className="max-w-full bg-gray-100 pt-2 mx-auto">
+    <div className="max-w-full pt-2 mx-auto">
       <PublicySlider />
       <div className="flex justify-between pr-6 gap-4 mb-2 mt-2">
         <div>

@@ -9,7 +9,7 @@ const MainLayout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <NavbarTop />
-      <main className="bg-gray-100/80 font-primaryRegular">
+      <main className="bg-white font-primaryRegular">
         {children}
       </main>
       <Footer />
