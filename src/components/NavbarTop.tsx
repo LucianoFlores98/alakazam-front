@@ -4,8 +4,6 @@ import { UserDropdown } from "./UserDropdown";
 import { useAuthStore } from "../store/auth";
 import { NotificationsMenu } from "./NotificationsMenu";
 
-
-
 const NavbarTop = () => {
 
   const isAuth = useAuthStore(state => state.isAuth)
@@ -28,7 +26,7 @@ const NavbarTop = () => {
           <div className="leading-3">
             <h1 className="font-bold text-xl text-primary_2 ml-2" >Alakazam</h1>
             <h2 className="text-sm w-full text-nowrap text-gray-700/80 font-normal">
-              Alquileres e inmuebles
+              Ecosistema Inmobiliario
             </h2>
           </div>
         </Link>
@@ -54,7 +52,7 @@ const NavbarTop = () => {
             <Link className="inline-block py-2 px-2 hover:bg-gray-200 rounded-full" to="/login">
               <div
                 className="flex items-center relative cursor-pointer whitespace-nowrap text-black">
-                Iniciar Sesión
+                Publicá tu inmueble
               </div>
             </Link>
           )}

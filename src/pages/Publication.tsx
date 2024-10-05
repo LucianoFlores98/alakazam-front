@@ -8,6 +8,10 @@ import { UserRating } from "../components/UserRating";
 
 import { currentUserRatingDummyData } from "../data/currentUserRating"; 
 import { userRatingDummyData } from "../data/userRatings"
+import { FeaturedReview } from '../components/FeaturedReview';
+import { Review } from "../components/Review";
+import { GalleryUsersPhotos } from "../components/GalleryUsersPhotos";
+import { AllUsersOpinions } from "../components/AllUsersOpinions";
 
 function Publication() {
 
@@ -31,7 +35,7 @@ function Publication() {
     </div>
 
     {/* Columna central (Principal) */}
-    <Card className="w-3/5 p-4">
+    <Card className="w-3/5 p-4 mb-4 mt-4">
 
       <div className="p-4">
         {/* Aquí colocas el contenido principal como perfil, calificaciones, publicaciones, etc. */}
@@ -56,9 +60,29 @@ function Publication() {
           you need.
         </Typography>
 
-        <SectionHeader title="Opiniones del inmueble"/>
-        <UserRating userRatings={userRatingDummyData} 
-          currentUserRating={currentUserRatingDummyData}/>
+        <SectionHeader title="Otros Inquilinos dicen:" className="mb-8"/>
+
+        <FeaturedReview />
+
+        <hr className="border-t-1 border-gray-300/80 my-4 mx-6 " />
+
+        <div className="flex justify-between mt-8">
+          <div className="flex flex-col">
+            <Typography variant="h5" className="mb-2" color="black">Opiniones</Typography>
+            <UserRating userRatings={userRatingDummyData} currentUserRating={currentUserRatingDummyData}/>
+          </div>
+          <div className="flex flex-col items-center space-y-2"> 
+            <GalleryUsersPhotos />
+            <Review />
+            <Review />
+            <Review />
+          </div>
+
+        </div>
+
+        <AllUsersOpinions className=""/>
+
+        
 
       </div>
 

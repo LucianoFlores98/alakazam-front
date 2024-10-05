@@ -9,9 +9,10 @@ import { realStatePropertyDummyData } from "./data/realStateProperty";
 */
 
 import React from "react";
-import { Button, Typography } from '@material-tailwind/react';
+import { Button, Typography, Chip } from '@material-tailwind/react';
 import { RealEstateProperty as RealStatePropertyType } from "../types/realStateProperty";
-import { UserRating } from "./UserRating";
+import { RatingMini } from "./RatingMini";
+
 
 interface PropertyCarousselProps extends React.HTMLAttributes<HTMLDivElement> {
   realEstateProperty: RealStatePropertyType;
@@ -144,12 +145,14 @@ export function PropertyCaroussel({ realEstateProperty }: PropertyCarousselProps
           </div>
           {/* <!-- Elemento 3 --> */}
           <div className=" inline-flex whitespace-nowrap w-1/4 justify-end">
-            <Typography className="text-success ms-2">{realEstateProperty.propertyStatus}</Typography>
+            <Chip variant="gradient" value={realEstateProperty.propertyStatus} className="rounded-full h-10" color="green" size="sm" />
+
+            {/* <Typography className="text-success ms-2">{realEstateProperty.propertyStatus}</Typography> */}
           </div>
         </div>
 
         {/* <!-- Fila 2 --> */}
-        <div className="mt-2 flex ">
+        <div className="mt-2 flex content-between">
           {/* <!-- Elemento 2 --> */}
           <div className="w-8/12 flex items-end">
             <div className="inline-flex items-center">
@@ -160,7 +163,8 @@ export function PropertyCaroussel({ realEstateProperty }: PropertyCarousselProps
           {/* <!-- Elemento 4 --> */}
           <div className="flex items-end w-4/12">
             <div className="inline-flex items-end">
-              <UserRating userRatings={realEstateProperty.userRating} version="mini" currentUserRating={{voteValue:0}}/>
+{/*               <UserRating userRatings={realEstateProperty.userRating} version="mini" currentUserRating={{voteValue:0}}/> */}
+            <RatingMini />
             </div>
           </div>
         </div>
@@ -171,7 +175,7 @@ export function PropertyCaroussel({ realEstateProperty }: PropertyCarousselProps
       <div className="flex flex-col select-none">        
         {/* Carrusel */}
         <div className="relative">
-          <Button className="bg-gray-100/80 w-16 h-16 rounded-full shadow-none hover:shadow-none !absolute top-1/2 transform -translate-y-1/2 p-0 text-dark flex items-center justify-center" 
+          <Button className="bg-darker/40 w-16 h-16 rounded-full shadow-none hover:shadow-none !absolute top-1/2 transform -translate-y-1/2 p-0 text-light flex items-center justify-center" 
             onClick={() => previousImage()}>
             <span className="material-symbols-rounded text-6xl p-0 m-0">
               chevron_left
@@ -184,7 +188,7 @@ export function PropertyCaroussel({ realEstateProperty }: PropertyCarousselProps
             alt=""
           />
           
-          <Button className="bg-gray-100/80 w-16 h-16 rounded-full shadow-none hover:shadow-none !absolute top-1/2 transform -translate-y-1/2 end-0 p-0 text-dark flex items-center justify-center" 
+          <Button className="bg-darker/40 w-16 h-16 rounded-full shadow-none hover:shadow-none !absolute top-1/2 transform -translate-y-1/2 end-0 p-0 text-light flex items-center justify-center" 
             onClick={() => nextImage()}>
             <span className="material-symbols-rounded text-6xl p-0 m-0">
               chevron_right
@@ -195,7 +199,7 @@ export function PropertyCaroussel({ realEstateProperty }: PropertyCarousselProps
         {/* Galería */}
         <div className="relative px-4 flex w-full scroll-smooth snap-x">
           <Button
-            className="bg-gray-300 opacity-80 rounded-full !absolute top-1/2 transform -translate-y-1/2 left-1 p-0 text-dark w-10 h-10 flex items-center justify-center"
+            className="bg-darker/80 opacity-80 rounded-full !absolute top-1/2 transform -translate-y-1/2 left-1 p-0 text-light w-10 h-10 flex items-center justify-center"
             onClick={scrollGalleryLeft}>
             <span className="material-symbols-rounded text-4xl p-0 m-0">
               chevron_left
@@ -216,7 +220,7 @@ export function PropertyCaroussel({ realEstateProperty }: PropertyCarousselProps
           </div>
           
           <Button
-            className="bg-gray-300 opacity-80 rounded-full !absolute top-1/2 transform -translate-y-1/2 right-1 p-0 text-dark w-10 h-10 flex items-center justify-center"
+            className="bg-darker/80 opacity-80 rounded-full !absolute top-1/2 transform -translate-y-1/2 right-1 p-0 text-light w-10 h-10 flex items-center justify-center"
             onClick={scrollGalleryRight}>
             <span className="material-symbols-rounded text-4xl p-0 m-0">
               chevron_right

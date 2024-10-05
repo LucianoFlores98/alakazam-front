@@ -1,3 +1,4 @@
+import { Footer } from "../components/Footer";
 import NavbarTop from "../components/NavbarTop";
 
 interface Props {
@@ -11,6 +12,7 @@ const MainLayout: React.FC<Props> = ({ children }) => {
       <main className="bg-gray-100/80 font-primaryRegular">
         {children}
       </main>
+      <Footer />
     </>
   );
 };
