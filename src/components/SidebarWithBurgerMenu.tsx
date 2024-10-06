@@ -38,11 +38,11 @@ export function SidebarWithBurgerMenu() {
           <span className="material-symbols-rounded h-8 w-8 stroke-2 flex items-center justify-center">filter_alt</span>
         )}
       </IconButton>
-      <Drawer open={isDrawerOpen} onClose={closeDrawer}>
+      <Drawer open={isDrawerOpen} onClose={closeDrawer} className="backdrop-filter-none">
         <Card
           color="transparent"
           shadow={false}
-          className="h-[calc(100vh-2rem)] w-full p-4"
+          className="h-full w-full p-4"
         >
           <div className="mb-2 flex items-center gap-4 p-4">
             <span

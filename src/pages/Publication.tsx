@@ -21,14 +21,17 @@ function Publication() {
   return(
   <div className="flex min-h-screen">
     {/* Columna izquierda */}
-    <div className="w-1/5 bg-gray-100 p-4">
-      <div>
+    <div className="w-1/5  p-4">
+      <div className="flex flex-col">
+        
         <Link className="inline-block py-2 px-2 hover:bg-gray-200 rounded-lg" to="/new-publication">
           <div className="flex items-center relative cursor-pointer whitespace-nowrap text-black">
             <span className="material-symbols-rounded">chevron_left</span>
             Volver al inicio
           </div>
-        </Link>      </div>
+        </Link>
+
+      </div>
       <div className="mt-4">
       {/** ACTIVIDAD */}
       </div>
@@ -91,7 +94,7 @@ function Publication() {
     </Card>
 
     {/* Columna derecha */}
-    <div className="w-1/5 bg-gray-100 p-4">
+    <div className="w-1/5 p-4">
 
     </div>
   </div>
@@ -104,3 +107,4 @@ export default Publication;
       <div className="flex max-w-full flex-wrap h-max bg-gray-100">
         <h2>Publicacion {publicationId}</h2>
       </div> */
+
