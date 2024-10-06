@@ -25,7 +25,7 @@ export function UserDropdown() {
           <Avatar
             variant="circular"
             alt="user profile"
-            className=""
+            className="hidden md:block"
             size="sm"
             src={
               isAuth

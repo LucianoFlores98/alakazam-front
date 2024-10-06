@@ -22,13 +22,15 @@ const SearchBar = memo(() => {
   };
 
   return (
-    <Card className=" flex flex-row w-full max-w-[24rem] bg-white rounded-full pr-0 pl-5 items-center">
+    <Card className=" w-full md:w-auto hover:shadow-md transition  bg-white rounded-full ">
+      <div className="flex flex-row pr-0 pl-5 items-center">
       <Input
         label="Buscá el alquiler de tus sueños"
         variant="standard"
         value={search}
         onChange={handleSearchChange}
         color="gray"
+        className="w-72"
       />
 
       <span className="h-7 border-l border-dark/10 ml-1"></span>
@@ -43,6 +45,8 @@ const SearchBar = memo(() => {
       >
         <span className="material-symbols-rounded text-darker">search</span>
       </Button>
+      </div>
+
     </Card>
   );
 });
