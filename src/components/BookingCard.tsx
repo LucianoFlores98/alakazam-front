@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   Card,
   CardHeader,
@@ -8,8 +9,14 @@ import {
   Tooltip,
   IconButton,
 } from "@material-tailwind/react";
- 
+
 export function BookingCard() {
+
+  const navigate = useNavigate();
+
+  const handleNavigation = () => {
+    navigate("/publication/1"); // Reemplaza "/target-page" con tu ruta
+  };
   return (
     <Card className="w-full max-w-[20rem] shadow-lg">
       <CardHeader floated={false} color="blue-gray">
@@ -148,7 +155,7 @@ export function BookingCard() {
         </div>
       </CardBody>
       <CardFooter className="pt-1">
-        <Button size="sm" fullWidth={true} className="bg-success">
+        <Button size="sm" fullWidth={true} className="bg-success" onClick={handleNavigation}>
           Reserve
         </Button>
       </CardFooter>
