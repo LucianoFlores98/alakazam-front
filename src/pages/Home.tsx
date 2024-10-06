@@ -87,7 +87,7 @@ function Home() {
   }, []) */
 
   return(
-    <div className="pt-2 ">
+    <div className="">
       <PublicySlider />
       <div className="flex justify-between pr-6 my-2">
         <div>
@@ -99,7 +99,7 @@ function Home() {
           <OrderBy />
         </div>
       </div>
-      <main className="flex flex-row">
+      <main className="flex flex-row ">
         <div className="">
           <SideBarMini />
         </div>
