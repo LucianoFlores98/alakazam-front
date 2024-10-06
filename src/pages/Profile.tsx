@@ -1,8 +1,11 @@
-import { UserRating } from "../components/UserRating";
+import React from "react";
+import { Link } from "react-router-dom";
+import { Card, Typography, Accordion, AccordionBody, AccordionHeader} from "@material-tailwind/react";
+
 import { currentUserRatingDummyData } from "../data/currentUserRating";
 import { userRatingDummyData } from "../data/userRatings";
-import { Card, Typography} from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+
+import { UserRating } from "../components/UserRating";
 import { GalleryUsersPhotos } from "../components/GalleryUsersPhotos";
 import { Review } from "../components/Review";
 import { AllUsersOpinions } from "../components/AllUsersOpinions";
@@ -10,7 +13,13 @@ import UserBanner from "../components/UserBanner";
 import UserActivity from "../components/UserActivity";
 import UserFeaturedInfo from "../components/UserFeaturedInfo";
 
+
 function Profile() {
+
+  const [openAcc1, setOpenAcc1] = React.useState(true);
+
+  const handleOpenAcc1 = () => setOpenAcc1((cur) => !cur);
+
 
   return(
     <div className="flex min-h-screen">
@@ -40,7 +49,14 @@ function Profile() {
         <UserBanner userName="Hugo Juanma" isVerified={true} userLocation="Posadas, Misiones." userImage="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ4yArsFz1tENJ3-P4UE_lTTm8L7yDFvwq_oXmaF8WJ0be1pOlZ" />
 
         <UserFeaturedInfo trustLevel="ALTO (88%)" responsabilityLevel="Responsable" rentalCount="12" paymentMethod="Efectivo & Tranferencia"/>
-        <hr className="border-t-1 border-gray-300/80 my-4 mx-6 " />
+
+        <Accordion open={openAcc1}>
+          <AccordionHeader onClick={handleOpenAcc1}>Presentación</AccordionHeader>
+          <AccordionBody>
+            Soy una persona simple, me gusta la coca bien fría y ver los atardeceres douuu.
+          </AccordionBody>
+        </Accordion>
+
 
         <div className="flex justify-between mt-8">
           <div className="flex flex-col">

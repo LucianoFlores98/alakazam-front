@@ -1,5 +1,5 @@
 import { useState, memo } from "react";
-import { Input, Button } from "@material-tailwind/react";
+import { Input, Button, Card } from "@material-tailwind/react";
 
 // Se utiliza React.memo para evitar renders innecesarios si las props no cambian.
 const SearchBar = memo(() => {
@@ -22,22 +22,28 @@ const SearchBar = memo(() => {
   };
 
   return (
-    <div className="relative flex w-full max-w-[24rem] bg-white rounded-full pl-4 shadow-lg">
+    <Card className=" flex flex-row w-full max-w-[24rem] bg-white rounded-full pr-0 pl-5 items-center">
       <Input
         label="Buscá el alquiler de tus sueños"
         variant="standard"
         value={search}
         onChange={handleSearchChange}
+        color="gray"
       />
+
+      <span className="h-7 border-l border-dark/10 ml-1"></span>
+
       <Button
         size="sm"
-        disabled={!search}
+        // disabled={!search}
         onClick={handleSearchSubmit}
-        className="rounded-full bg-gradient-to-tr from-primary to-primary_2 px-4 py-2 hover:from-primary_2 hover:to-primary transition-all transform hover:scale-105 ml-2"
+        color="white"
+        variant="text"
+        className=" hover:from-primary_2 hover:to-primary transition-all transform hover:scale-105 rounded-r-full"
       >
-        <span className="material-symbols-rounded">search</span>
+        <span className="material-symbols-rounded text-darker">search</span>
       </Button>
-    </div>
+    </Card>
   );
 });
 

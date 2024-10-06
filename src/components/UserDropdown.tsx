@@ -5,6 +5,7 @@ import {
   MenuItem,
   Avatar,
   Typography,
+  Card,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/auth";
@@ -17,7 +18,7 @@ export function UserDropdown() {
   return (
     <Menu>
       <MenuHandler>
-        <div className="flex gap-3 items-center cursor-pointer border border-1 border-akzm_gray/30 px-2 py-1 rounded-full hover:shadow-md transition duration-300">
+        <Card className="flex flex-row gap-3 items-center cursor-pointer px-2 py-1 rounded-full hover:shadow-xl transition duration-300">
           <span className="material-symbols-rounded text-xl text-akzm_gray">
             menu
           </span>
@@ -32,7 +33,7 @@ export function UserDropdown() {
                 : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
             }
           />
-        </div>
+        </Card>
       </MenuHandler>
       <MenuList className="rounded-xl">
         {isAuth ? (

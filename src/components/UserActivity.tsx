@@ -1,4 +1,5 @@
-import { Button, Typography } from "@material-tailwind/react";
+import {  Card, Typography } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const UserActivity: React.FC = () => {
 
@@ -18,21 +19,26 @@ const UserActivity: React.FC = () => {
         <Typography variant="h6" className='text-darker font-semibold'>Actividad reciente</Typography>
       </div>
       
-      <div className='border border-darker/50 rounded-lg px-2 py-2'>
+      <Card className=' px-2 py-2 space-y-2'>
         {activities.map((item, index) => (
-          <div key={index} className='mb-2'>
+          <div key={index} className='mb-2 flex flex-col'>
 
-            <span className='text-danger font-medium mr-2'>{item.fecha}</span>
-            <span className='text-dark'>{item.actividad} </span>
+            <div className="flex items-center">
+            <Typography variant="small" className='text-danger font-medium mr-2'>{item.fecha}</Typography>
+            <Typography variant="small" className='text-dark'>{item.actividad} </Typography>
+            </div>
 
             {item.link && (
-              <a href="#" className='text-info hover:underline'>
-                {item.link}
-              </a>
+              <Link to="/" className="hover:underline">
+                <Typography variant="small" color="blue" className="text-center">{item.link}</Typography>
+              </Link>
             )}
+
+            <hr className="border-t-1 border-gray-300/80 mt-1 mx-6 " />
+
           </div>
         ))}
-      </div>
+      </Card>
     </div>
   );
 }
