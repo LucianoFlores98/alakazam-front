@@ -1,38 +1,47 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Accordion,
   AccordionHeader,
   AccordionBody,
   ListItem,
-  Input,
   Typography,
   IconButton,
   Drawer,
   Card,
   Radio,
   Checkbox,
-  List
+  ListItemPrefix,
+  Button
 } from "@material-tailwind/react";
+import SearchBar from "./SearchBar";
 
 // Definimos el tipo de categoría
 type categoryItemsType = {
   title: string;
   input: string;
   category: string[];
+  icon?: string;
 };
 
 // Datos de las categorías con sus inputs
 const categoryItems: categoryItemsType[] = [
   {
     title: "Tipos de Propiedad",
-    input: "Radio", // Especifica el tipo de input
+    input: "Radio",
     category: ["Casa", "Departamento", "Casa Quinta", "Local", "Oficina"],
+    icon: "home",
   },
   {
     title: "Servicios",
-    input: "Checkbox", // Checkbox para esta categoría
+    input: "Checkbox",
     category: ["Luz", "Agua", "Internet"],
+    icon: "bolt",
   },
+  {
+    title: "Otras Categorías",
+    input: "Radio",
+    category: ["Servicios", "Otras"],
+  }
 ];
 
 export function FilterSideBar() {
@@ -53,46 +62,53 @@ export function FilterSideBar() {
     return category.map((item, idx) => {
       if (inputType === "Radio") {
         return (
-          <ListItem key={idx} className="flex items-center gap-2 p-0">
-            <Radio
-              id={`radio-${item}`}
-              name="property" // Agrupamos los radio buttons en un mismo grupo
-              value={item}
-              label={item}
-              className="checked:border-akzm_red"
-              icon={ <span className="material-symbols-rounded align-middle text-akzm_red">radio_button_checked</span> }
-              onChange={(e) => console.log(e.target.value)} // Manejo del evento de cambio
-            />
+          <ListItem key={idx} className="p-0">
+            <label className="flex w-full cursor-pointer">
+              <ListItemPrefix>
+                <Radio
+                  id={`radio-${item}`}
+                  name="property" // Agrupamos los radio buttons en un mismo grupo
+                  value={item}
+                  label={item}
+                  ripple={false}
+                  className="checked:border-akzm_red hover:before:opacity-0"
+                  icon={<span className="material-symbols-rounded align-middle text-akzm_red">radio_button_checked</span>}
+                  onChange={(e) => console.log(e.target.value)} // Manejo del evento de cambio
+                />
+              </ListItemPrefix>
+            </label>
           </ListItem>
         );
       }
 
       if (inputType === "Checkbox") {
         return (
-          <div key={idx} className="flex items-center gap-2">
-            <Checkbox
-              id={`checkbox-${item}`}
-              value={item}
-              label={item}
-              className="checked:border-akzm_red checked:bg-akzm_red"
-              onChange={(e) => console.log(e.target.value)} // Manejo del evento de cambio
-            />
-          </div>
+          <ListItem key={idx} className="p-0">
+            <label className="flex w-full cursor-pointer">
+              <ListItemPrefix>
+                <Checkbox
+                  id={`checkbox-${item}`}
+                  value={item}
+                  label={item}
+                  ripple={false}
+                  className="checked:border-akzm_red checked:bg-akzm_red hover:before:opacity-0"
+                  onChange={(e) => console.log(e.target.value)} // Manejo del evento de cambio
+                />
+              </ListItemPrefix>
+            </label>
+          </ListItem>
         );
       }
       return null; // Si no hay un tipo válido, no renderizamos nada
     });
   };
 
-  const getDrawerIcon = (isDrawerOpen: boolean) =>
-    isDrawerOpen ? "close" : "filter_alt";
-
   return (
     <>
       {/* Botón para abrir el Drawer */}
       <IconButton variant="text" size="lg" onClick={openDrawer}>
         <span className="material-symbols-rounded h-8 w-8 stroke-2 flex items-center justify-center">
-          {getDrawerIcon(isDrawerOpen)}
+          filter_alt
         </span>
       </IconButton>
 
@@ -119,16 +135,14 @@ export function FilterSideBar() {
           </div>
 
           {/* Input para buscar categorias */}
-          <div className="p-2">
-            <Input
-              icon={
-                <span className="material-symbols-rounded h-5 w-5 flex items-center justify-center">
-                  search
-                </span>
-              }
-              label="Radio"
-            />
+          <div className="my-3">
+            <SearchBar label="Busque una categoria" />
           </div>
+
+          <Button variant="outlined" className="flex items-center gap-3 p-1 mb-3">
+            Aplicar filtros
+            <span className="material-symbols-rounded rotate-icon">refresh</span>
+          </Button>
 
           {/* Iteramos sobre las categorías */}
           {categoryItems.map((item, index) => (
@@ -137,9 +151,8 @@ export function FilterSideBar() {
               open={open === index + 1}
               icon={
                 <span
-                  className={`material-symbols-rounded mx-auto h-4 w-4 transition-transform flex items-center justify-center ${
-                    open === index + 1 ? "rotate-180" : ""
-                  }`}
+                  className={`material-symbols-rounded mx-auto h-4 w-4 transition-transform flex items-center justify-center ${open === index + 1 ? "rotate-180" : ""
+                    }`}
                 >
                   keyboard_arrow_down
                 </span>
@@ -151,6 +164,11 @@ export function FilterSideBar() {
                   onClick={() => handleOpen(index + 1)}
                   className="border-b-0 p-3"
                 >
+                  <ListItemPrefix>
+                    <span className="material-symbols-rounded h-3 w-5 flex items-center justify-center">
+                      {item.icon ?? 'category'}
+                    </span>
+                  </ListItemPrefix>
                   <Typography color="blue-gray" className="mr-auto font-normal">
                     {item.title} {/* Usamos el título de la categoría */}
                   </Typography>
@@ -160,9 +178,7 @@ export function FilterSideBar() {
               {/* Cuerpo del acordeón donde se muestran los inputs */}
               <AccordionBody className="py-1">
                 {/* Renderizamos los inputs dinámicamente según la categoría */}
-                <List>
-                    {renderInput(item.category, item.input)}  
-                </List>
+                {renderInput(item.category, item.input)}
               </AccordionBody>
             </Accordion>
           ))}
