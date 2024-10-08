@@ -11,7 +11,8 @@ import {
   Radio,
   Checkbox,
   ListItemPrefix,
-  Button
+  Button,
+  Navbar
 } from "@material-tailwind/react";
 import SearchBar from "./SearchBar";
 
@@ -41,7 +42,27 @@ const categoryItems: categoryItemsType[] = [
     title: "Otras Categorías",
     input: "Radio",
     category: ["Servicios", "Otras"],
-  }
+  },
+  {
+    title: "cat1",
+    input: "Radio",
+    category: ["1a", "1b"],
+  },
+  {
+    title: "cat2",
+    input: "Radio",
+    category: ["2a", "2b"],
+  },
+  {
+    title: "cat3",
+    input: "Radio",
+    category: ["3a", "3b"],
+  },
+  {
+    title: "cat4",
+    input: "Radio",
+    category: ["4a", "4b"],
+  },
 ];
 
 export function FilterSideBar() {
@@ -54,8 +75,14 @@ export function FilterSideBar() {
   };
 
   // Abre y cierra el drawer
-  const openDrawer = () => setIsDrawerOpen(true);
-  const closeDrawer = () => setIsDrawerOpen(false);
+  const openDrawer = () => {
+    setIsDrawerOpen(true);
+    document.body.style.overflow = "hidden";
+  }; 
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
+    document.body.style.overflow = "";
+  }
 
   // Función que renderiza los inputs según el tipo
   const renderInput = (category: string[], inputType: string) => {
@@ -117,7 +144,7 @@ export function FilterSideBar() {
         <Card
           color="transparent"
           shadow={false}
-          className="h-[calc(100vh-2rem)] w-full p-4"
+          className="h-[calc(100vh-2rem)] w-full p-4 overflow-y-auto"
         >
           {/* Título del Drawer */}
           <div className="flex justify-between">
@@ -181,8 +208,15 @@ export function FilterSideBar() {
                 {renderInput(item.category, item.input)}
               </AccordionBody>
             </Accordion>
+
+            
           ))}
         </Card>
+        <div className="overflow-scroll -m-6 max-h-[768px] w-[calc(100%+48px)]">
+            <Navbar className="sticky">
+              <Button>hola</Button>
+            </Navbar>
+          </div>
       </Drawer>
     </>
   );
