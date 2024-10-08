@@ -69,14 +69,14 @@ const OrderBy = () => {
   );
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center">
       <span>Ordenar Por:</span>
       <Menu open={openMenu} handler={setOpenMenu}>
         <MenuHandler>
           <Button
             variant="text"
             size="sm"
-            className="flex items-center gap-1 py-1 px-2 text-base font-normal capitalize tracking-normal outline-none focus:outline-none"
+            className="flex items-center gap-1 py-1 px-2 text-base font-normal capitalize tracking-normal outline-none focus:outline-none hover:bg-transparent hover:text-akzm_red"
           >
             {selectedValue}
           </Button>
