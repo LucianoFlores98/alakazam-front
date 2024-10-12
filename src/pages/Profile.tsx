@@ -12,6 +12,30 @@ import UserBanner from "../components/UserBanner";
 import UserActivity from "../components/UserActivity";
 import UserFeaturedInfo from "../components/UserFeaturedInfo";
 
+const PROFILE_REVIEWS = [
+  //Review 3
+  {
+  userName:"",
+  nickName:"",
+  reviewComment:"",
+  userProfile:"URL"
+  },
+  //Review 2
+  {
+    userName:"",
+    nickName:"",
+    reviewComment:"",
+    userProfile:"URL"
+  },
+  //Review 3
+  {
+    userName:"",
+    nickName:"",
+    reviewComment:"",
+    userProfile:"URL"
+  },
+]
+
 
 function Profile() {
 
@@ -63,9 +87,10 @@ function Profile() {
             <UserRating userRatings={userRatingDummyData} currentUserRating={currentUserRatingDummyData}/>
           </div>
           <div className="flex flex-col items-center space-y-2"> 
-            <Review userName="" nickName="" reviewComment=""/>
-            <Review userName="" nickName="" reviewComment=""/>
-            <Review userName="" nickName="" reviewComment=""/>
+            {PROFILE_REVIEWS.map(({userName, nickName, reviewComment, userProfile})=>
+            (
+              <Review userName={userName} nickName={nickName} reviewComment={reviewComment} userProfile={userProfile}/>
+            ))}
           </div>
 
         </div>

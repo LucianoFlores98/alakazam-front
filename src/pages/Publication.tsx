@@ -14,6 +14,30 @@ import { GalleryUsersPhotos } from "../components/GalleryUsersPhotos";
 import { AllUsersOpinions } from "../components/AllUsersOpinions";
 import UserBanner from "../components/UserBanner";
 
+const PUBLICATION_REVIEWS = [
+  //Review 3
+  {
+  userName:"",
+  nickName:"",
+  reviewComment:"",
+  userProfile:"URL"
+  },
+  //Review 2
+  {
+    userName:"",
+    nickName:"",
+    reviewComment:"",
+    userProfile:"URL"
+  },
+  //Review 3
+  {
+    userName:"",
+    nickName:"",
+    reviewComment:"",
+    userProfile:"URL"
+  },
+]
+
 function Publication() {
 
   //Nos traemos el ID de la publicacion para mostrarlo
@@ -77,14 +101,15 @@ function Publication() {
           </div>
           <div className="flex flex-col items-center space-y-2"> 
             <GalleryUsersPhotos />
-            <Review userName="" nickName="" reviewComment=""/>
-            <Review userName="" nickName="" reviewComment=""/>
-            <Review userName="" nickName="" reviewComment=""/>
+            {PUBLICATION_REVIEWS.map(({userName, nickName, reviewComment, userProfile})=>
+            (
+              <Review userName={userName} nickName={nickName} reviewComment={reviewComment} userProfile={userProfile}/>
+            ))}
           </div>
 
         </div>
 
-        <AllUsersOpinions className=""/>
+        <AllUsersOpinions />
 
         
 
