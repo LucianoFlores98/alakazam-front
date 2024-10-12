@@ -6,6 +6,7 @@ import { loginSchema } from "../models/validations/loginSchema";
 import { loginRequest, profileRequest } from "../services/auth";
 import { useAuthStore } from "../store/auth";
 import { useNavigate } from "react-router-dom";
+import { Doggy } from "../components/Buddy/Doggy";
 
 interface IFormInput {
   email: string,
@@ -55,7 +56,7 @@ const Login: React.FC<Props> = () => {
   return (
     <div className="flex justify-center items-center ">
       
-      <Card color="white" shadow={false} className="px-5 py-4 mt-4 ">
+      <Card color="white" shadow={false} className="px-5 py-4 mt-4 mb-5 mr-16">
         <Typography variant="h4" color="blue-gray" className="justify-center text-center">
           Inicio de sesión
         </Typography>
@@ -112,6 +113,9 @@ const Login: React.FC<Props> = () => {
 
         </form>
       </Card>
+
+      <Doggy />
+
     </div>
   );
 };
