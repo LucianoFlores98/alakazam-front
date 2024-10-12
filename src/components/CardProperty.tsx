@@ -9,10 +9,11 @@ interface Props {
 	images: string[];
   price: string;
   inmobiliaria:string;
+  isRealState?: boolean;
 }
 
 //falta imagen
-const CardProperty: React.FC<Props> = ({ id, title, location, images, price, inmobiliaria }) => {
+const CardProperty: React.FC<Props> = ({ id, title, location, images, price, inmobiliaria ,isRealState}) => {
 
   return(
     <Card className="relative w-[23rem] min-w-72">
@@ -96,7 +97,7 @@ const CardProperty: React.FC<Props> = ({ id, title, location, images, price, inm
             {/**Caracteristicas principales  */}
             <main className="grid grid-cols-2 grid-rows-2 gap-1 mt-5 ">
               {/**Caracteristica 1  */} 
-              <Chip value="Expensas altas" size='lg' variant="ghost" color='deep-orange' icon={<span className="material-symbols-rounded items-center">attach_money</span>} />
+              <Chip value="Expensas altas" size='lg' variant="ghost" icon={<span className="material-symbols-rounded items-center">attach_money</span>} />
 
 
               {/**Caracteristica 2  */} 
@@ -106,20 +107,20 @@ const CardProperty: React.FC<Props> = ({ id, title, location, images, price, inm
               <Chip value="Pet Friendly" size='lg' variant="ghost" color='green' icon={<span className="material-symbols-rounded items-center">pets</span>} />
 
               {/** Caracteristica 4 */} 
-              <Chip value="Aumento Semestral" size='lg' variant="ghost" color='yellow' icon={<span className="material-symbols-rounded items-center">request_page</span>} />
+              <Chip value="Aumento Semestral" size='lg' variant="ghost" icon={<span className="material-symbols-rounded items-center">request_page</span>} />
 
             </main>
           </Link>
 
             {/**Footer Card container  */}
-            <Link to="/real-state" className="flex flex-row items-center content-between mt-2">
+            <Link to="/profile" className="flex flex-row items-center content-between mt-2">
                 {/**Avatar */}
                 <div className='w-1/2 flex items-center mt-4'>
-                  <Avatar src="https://docs.material-tailwind.com/img/face-2.jpg" alt="avatar" size='sm' />
+                  <Avatar src="https://media.istockphoto.com/id/1148861340/es/foto/joven-hipster-macho-con-capucha-amarilla-sonriendo-y-posando-con-los-brazos-cruzados-sobre.jpg?s=1024x1024&w=is&k=20&c=HmRBRjuA5ut4Wu6g2w08_Iw4uUn7dFzrfB6sJKZyOBY=" alt="avatar" size='sm' />
                   <div>
                     <Typography variant="h6" className="leading-4 ml-2 text-dark">{inmobiliaria}</Typography>
                     <Typography variant="small" color="blue" className="font-normal ml-2 ">
-                      Inmobiliaria
+                      { isRealState? <span>Inmobiliaria</span> : <span>Dueño Directo</span>}
                       <span className="material-symbols-rounded text-info align-middle text-sm">verified</span>
                     </Typography>
                   </div>

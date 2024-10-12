@@ -5,7 +5,14 @@ import {
   Typography,
   Avatar,
 } from "@material-tailwind/react";
- 
+
+interface Props {
+  userName: string;
+  nickName: string;
+  reviewComment: string;
+}
+
+
 function StarIcon() {
   return (
     <svg
@@ -22,8 +29,9 @@ function StarIcon() {
     </svg>
   );
 }
- 
-export function Review() {
+
+
+export const Review: React.FC<Props> = ({ userName, nickName, reviewComment}) => {
   return (
     <Card color="transparent" className="w-full max-w-[26rem]">
       <CardHeader
@@ -41,7 +49,7 @@ export function Review() {
         <div className="flex w-full flex-col gap-0.5">
           <div className="flex items-center justify-between">
             <Typography variant="h6" color="blue-gray">
-              Juan Alberto
+              {userName}
             </Typography>
             <div className="flex items-center gap-0">
               <StarIcon />
@@ -51,12 +59,12 @@ export function Review() {
               <StarIcon />
             </div>
           </div>
-          <Typography color="blue-gray" >@Juanma97</Typography>
+          <Typography color="blue-gray" >@{nickName}</Typography>
         </div>
       </CardHeader>
       <CardBody className="py-1 px-2">
         <Typography variant="paragraph">
-          &quot;Alquile por 3 años y la verdad que el dueño Marcelo es un grande!! nunca me tuve que agachar para conocerlo&quot;
+          &quot;{reviewComment}&quot;
         </Typography>
       </CardBody>
     </Card>

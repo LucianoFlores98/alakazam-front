@@ -10,6 +10,7 @@ import { currentUserRatingDummyData } from "../data/currentUserRating";
 import { userRatingDummyData } from "../data/userRatings";
 import { UserRating } from "./UserRating";
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
   userName: string;
@@ -62,6 +63,7 @@ const UserBanner: React.FC<Props> = ({
           {/* Información del usuario */}
           <div className="text-left max-w-72 lg:max-w-96">
             <Typography className="text-2xl lg:text-3xl font-bold text-gray-900 inline">
+              <Link to="/profile">
               {userName}
               <span
                 className={`material-symbols-rounded ${isVerified ? "text-info" : "text-nico"
@@ -69,6 +71,7 @@ const UserBanner: React.FC<Props> = ({
               >
                 {getVerificationIcon(isVerified)}
               </span>
+              </Link>
             </Typography>
 
             <Typography className="text-xs text-secondary lg:text-sm flex items-center mt-1">

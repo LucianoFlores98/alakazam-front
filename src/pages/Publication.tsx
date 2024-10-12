@@ -12,6 +12,7 @@ import { FeaturedReview } from '../components/FeaturedReview';
 import { Review } from "../components/Review";
 import { GalleryUsersPhotos } from "../components/GalleryUsersPhotos";
 import { AllUsersOpinions } from "../components/AllUsersOpinions";
+import UserBanner from "../components/UserBanner";
 
 function Publication() {
 
@@ -24,7 +25,7 @@ function Publication() {
     <div className="w-1/5  p-4">
       <div className="flex flex-col">
         
-        <Link className="inline-block py-2 px-2 hover:bg-gray-200 rounded-lg" to="/new-publication">
+        <Link className="inline-block py-2 px-2 hover:bg-gray-200 rounded-lg" to="/">
           <div className="flex items-center relative cursor-pointer whitespace-nowrap text-black">
             <span className="material-symbols-rounded">chevron_left</span>
             Volver al inicio
@@ -45,7 +46,7 @@ function Publication() {
         <PropertyCaroussel realEstateProperty={realStatePropertyDummyData}/>
 
         <SectionHeader title="Conoce al locador"/>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Happy_Shrek_%28cropped%29.jpg" alt=""  className="mt-2"/>
+        <UserBanner userName="Hugo Juanma" isVerified={true} userLocation="Posadas, Misiones." userImage="https://media.istockphoto.com/id/1148861340/es/foto/joven-hipster-macho-con-capucha-amarilla-sonriendo-y-posando-con-los-brazos-cruzados-sobre.jpg?s=1024x1024&w=is&k=20&c=HmRBRjuA5ut4Wu6g2w08_Iw4uUn7dFzrfB6sJKZyOBY=" />
 
         <SectionHeader title="Caracteristicas"/>
         <ul className="list-disc pl-8" >
@@ -76,9 +77,9 @@ function Publication() {
           </div>
           <div className="flex flex-col items-center space-y-2"> 
             <GalleryUsersPhotos />
-            <Review />
-            <Review />
-            <Review />
+            <Review userName="" nickName="" reviewComment=""/>
+            <Review userName="" nickName="" reviewComment=""/>
+            <Review userName="" nickName="" reviewComment=""/>
           </div>
 
         </div>

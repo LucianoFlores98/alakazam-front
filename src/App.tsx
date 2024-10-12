@@ -1,6 +1,6 @@
 import MainLayout from "./layouts/MainLayout"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import {  HomeV, LoginV, PublicationV, NewPublicationV , UserProfileV, RealStateV} from "./pages/Index"
+import {  HomeV, LoginV, PublicationV, NewPublicationV , UserProfileV, RealStateV, MyProfileV} from "./pages/Index"
 import {ProtectedRoute} from "./components/ProtectedRoute"
 import { useAuthStore } from "./store/auth"
 
@@ -21,8 +21,9 @@ function App() {
 
             {/** Rutas privadas (!!user nos resume a un boolean, si existe devuelve true, sino devuelve un false) */}
             <Route element={<ProtectedRoute  isAllowed={isAuth} />}>
-              <Route path="/profile" element={<UserProfileV />} />
-              <Route path="/real-state" element={<RealStateV />} />
+            <Route path="/profile" element={<UserProfileV />} />
+            <Route path="/my-profile" element={<MyProfileV />} />
+            <Route path="/real-state" element={<RealStateV />} />
               <Route path="/new-publication" element={<NewPublicationV />} />
             </Route> 
           </Routes>
