@@ -2,7 +2,7 @@ import { useState, memo } from "react";
 import { Input, Button, Card } from "@material-tailwind/react";
 
 // Se utiliza React.memo para evitar renders innecesarios si las props no cambian.
-const SearchBar = memo(() => {
+const SearchBar = memo(({ label }: { label: string }) => {
   const [search, setSearch] = useState("");
 
   // Actualiza el estado con el valor del input.
@@ -22,31 +22,30 @@ const SearchBar = memo(() => {
   };
 
   return (
-    <Card className=" w-full md:w-auto hover:shadow-md transition  bg-white rounded-full ">
-      <div className="flex flex-row pr-0 pl-5 items-center">
-      <Input
-        label="Buscá el alquiler de tus sueños"
-        variant="standard"
-        value={search}
-        onChange={handleSearchChange}
-        color="gray"
-        className="w-72"
-      />
+    <Card className="w-full md:max-w-sm lg:max-w-lg hover:shadow-md transition bg-white rounded-full">
+      <div className="flex flex-row pr-0 pl-2 items-center">
+        <Input
+          label={label}
+          value={search}
+          onChange={handleSearchChange}
+          color="gray"
+          className="w-72 border-none"
+          labelProps={{className: "before:border-none after:border-none"}}
+        />
 
-      <span className="h-7 border-l border-dark/10 ml-1"></span>
+        <span className="h-7 border-l border-dark/10 ml-1"></span>
 
-      <Button
-        size="sm"
-        // disabled={!search}
-        onClick={handleSearchSubmit}
-        color="white"
-        variant="text"
-        className=" hover:from-primary_2 hover:to-primary transition-all transform hover:scale-105 rounded-r-full"
-      >
-        <span className="material-symbols-rounded text-darker">search</span>
-      </Button>
+        <Button
+          size="sm"
+          // disabled={!search}
+          onClick={handleSearchSubmit}
+          color="white"
+          variant="text"
+          className=" hover:from-primary_2 hover:to-primary transition-all transform hover:scale-105 rounded-r-full"
+        >
+          <span className="material-symbols-rounded text-darker">search</span>
+        </Button>
       </div>
-
     </Card>
   );
 });
