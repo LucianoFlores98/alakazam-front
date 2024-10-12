@@ -14,7 +14,7 @@ const PROPIEDADES = [
       "https://www.iproyeccion.cl/content/uploads/2023/10/diseno-departamento-moderno.jpg"
     ],
     price: '850.000',
-    inmobiliaria: 'FS Servicios inmobiliarios'
+    inmobiliaria: 'Hugo Juanma'
   },
   //propiedad 2
   {
@@ -69,6 +69,7 @@ import { PublicySlider } from "../components/PublicySlider";
 import Location from "../components/Location";
 import CardProperty from "../components/CardProperty";
 import { SideBarMini } from "../components/SideBarMini";
+
 
 function Home() {
 

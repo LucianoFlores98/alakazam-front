@@ -29,7 +29,7 @@ export function UserDropdown() {
             size="sm"
             src={
               isAuth
-                ? "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGZhY2V8ZW58MHx8MHx8fDA%3D"
+                ? "https://media.istockphoto.com/id/1392783238/es/foto/retrato-de-una-adolescente-sonriente-mirando-a-la-c%C3%A1mara-sobre-un-fondo-azul.jpg?s=1024x1024&w=is&k=20&c=y5kP9CeEnicrQq0hGq0jp6OvGK-yQXY0bihAAfoqshs="
                 : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
             }
           />
@@ -44,19 +44,19 @@ export function UserDropdown() {
             >
               <span className="gap-1">
                 <Typography variant="paragraph" className="font-bold text-dark">
-                  Nombre De Usuario
+                  Yuliana Alvez
                 </Typography>
                 <Typography
                   variant="small"
                   className="text-darker opacity-60"
                 >
-                  @nombre_usuario
+                  @yuli_205
                 </Typography>
               </span>
             </MenuItem>
             <hr className="my-1 pointer-events-none border-gray-300" />
 
-            <Link to="/profile">
+            <Link to="/my-profile">
               <MenuItem className="flex items-center justify-start gap-2 group">
                 <span className="material-symbols-rounded text-darker group-hover:text-akzm_red transition-all">
                   account_circle
@@ -91,18 +91,6 @@ export function UserDropdown() {
                 className="text-dark group-hover:text-akzm_red transition-all"
               >
                 Mis inmuebles
-              </Typography>
-            </MenuItem>
-
-            <MenuItem className="flex items-center justify-start gap-2 group">
-              <span className="material-symbols-rounded text-darker group-hover:text-akzm_red transition-all">
-                notifications
-              </span>
-              <Typography
-                variant="paragraph"
-                className="text-dark group-hover:text-akzm_red transition-all"
-              >
-                Notificaciones
               </Typography>
             </MenuItem>
 

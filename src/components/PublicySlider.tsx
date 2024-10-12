@@ -4,7 +4,7 @@ import Carousel from '@material-tailwind/react/components/Carousel'
 export const PublicySlider = () => {
   return (
     <Carousel
-        className="rounded-xl h-16 w-full"
+        className="rounded-xl h-16 w-full mt-4"
         loop
         navigation={() => (
             <div>
@@ -19,22 +19,22 @@ export const PublicySlider = () => {
                     size="sm"
                     onClick={handlePrev}
                     className="!absolute top-2/4 left-0 -translate-y-2/4 w-5 h-5 justify-center rounded-full"
-                  >
+                >
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1}
-                      stroke="currentColor"
-                      className="h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1}
+                    stroke="currentColor"
+                    className="h-6 w-6"
                     >
-                      <path
+                    <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         d="M15 19l-7-7 7-7"
-                      />
+                    />
                     </svg>
-                  </IconButton>
+                </IconButton>
                 )}
                 nextArrow={({ handleNext }) => (
                     <IconButton
