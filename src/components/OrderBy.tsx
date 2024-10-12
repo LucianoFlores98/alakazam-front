@@ -28,7 +28,9 @@ const directionItems: MenuItemType[] = [
 
 const OrderBy = () => {
   const [selectedKey, setSelectedKey] = React.useState<string>("recomendados");
-  const [selectedDirection, setSelectedDirection] = React.useState<string | null>(null);
+  const [selectedDirection, setSelectedDirection] = React.useState<
+    string | null
+  >(null);
   const [openMenu, setOpenMenu] = React.useState(false);
 
   const handleSelectionChange = (key: string) => {
@@ -55,23 +57,26 @@ const OrderBy = () => {
     </span>
   );
 
+  const checkIcon = <span className="material-symbols-rounded text-sm text-primary_2">check</span>;
+
   // Mostrar el valor seleccionado y la flecha si no es "Recomendados"
   const selectedValue = (
     <>
-      {menuItems.find((item) => item.key === selectedKey)?.key || "Recomendados"}{" "}
+      {menuItems.find((item) => item.key === selectedKey)?.key ||
+        "Recomendados"}{" "}
       {selectedKey !== "recomendados" && directionIcon}
     </>
   );
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center">
       <span>Ordenar Por:</span>
       <Menu open={openMenu} handler={setOpenMenu}>
         <MenuHandler>
           <Button
             variant="text"
             size="sm"
-            className="flex items-center gap-1 py-0 px-0.5 text-base font-normal capitalize tracking-normal  hover:text-primary_2 outline-none focus:outline-none"
+            className="flex items-center gap-1 py-1 px-2 text-base font-normal capitalize tracking-normal outline-none focus:outline-none hover:bg-transparent hover:text-akzm_red"
           >
             {selectedValue}
           </Button>
@@ -81,9 +86,10 @@ const OrderBy = () => {
             <MenuItem
               key={key}
               onClick={() => handleSelectionChange(key)}
-              className={`${selectedKey === key ? "!bg-primary_2 !text-white" : ""} px-2 py-0`}
+              className={"px-2 py-1 flex justify-between items-center"}
             >
-              <Typography color="blue-gray">{label}</Typography>
+              <Typography className="text-darker text-sm">{label}</Typography>
+              {selectedKey == key && checkIcon}
             </MenuItem>
           ))}
           <hr className="my-1 hover:border-none" />
@@ -91,14 +97,11 @@ const OrderBy = () => {
             <MenuItem
               key={key}
               onClick={() => handleSelectionChange(key)}
-              className={`${
-                selectedDirection === key ? "!bg-primary_2 font-bold !text-white" : ""
-              } px-2 py-0 ${
-                selectedKey === "recomendados" ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className={`${selectedKey === "recomendados" ? "opacity-50 cursor-not-allowed" : "" } px-2 py-1 flex justify-between items-center`}
               disabled={selectedKey === "recomendados"}
             >
-              <Typography color="blue-gray">{label}</Typography>
+              <Typography className="text-darker text-sm">{label}</Typography>
+              {selectedDirection == key && checkIcon}
             </MenuItem>
           ))}
         </MenuList>
