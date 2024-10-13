@@ -10,13 +10,14 @@ interface Props {
   price: string;
   inmobiliaria:string;
   isRealState?: boolean;
+  profileImage:string;
 }
 
 //falta imagen
-const CardProperty: React.FC<Props> = ({ id, title, location, images, price, inmobiliaria ,isRealState}) => {
+const CardProperty: React.FC<Props> = ({ id, title, location, images, price, inmobiliaria ,isRealState, profileImage}) => {
 
   return(
-    <Card className="relative w-[23rem] min-w-72">
+    <Card className="relative w-[22rem] min-w-72 h-[470px]">
       {/** Linkeable */} 
           {/** Header Card */}
           <header className="flex justify-center relative overflow-hidden h-52">
@@ -75,7 +76,7 @@ const CardProperty: React.FC<Props> = ({ id, title, location, images, price, inm
           </header>
   
           {/**Card Main content  */} 
-          <main className="px-2 pb-2">
+          <main className="px-2 pb-2 ">
           <Link to={`/publication/${id}`}>
             {/**Header Main content  */} 
             <header className="mt-2">
@@ -113,11 +114,11 @@ const CardProperty: React.FC<Props> = ({ id, title, location, images, price, inm
           </Link>
 
             {/**Footer Card container  */}
-            <Link to="/profile" className="flex flex-row items-center content-between mt-2">
+            <Link to="/profile" className="flex flex-row absolute bottom-4 items-end h-max w-full px-1">
                 {/**Avatar */}
-                <div className='w-1/2 flex items-center mt-4'>
-                  <Avatar src="https://media.istockphoto.com/id/1148861340/es/foto/joven-hipster-macho-con-capucha-amarilla-sonriendo-y-posando-con-los-brazos-cruzados-sobre.jpg?s=1024x1024&w=is&k=20&c=HmRBRjuA5ut4Wu6g2w08_Iw4uUn7dFzrfB6sJKZyOBY=" alt="avatar" size='sm' />
-                  <div>
+                <div className='w-auto flex items-center mt-4'>
+                  <Avatar src={profileImage} alt="avatar" size='sm' />
+                  <div className='flex flex-col flex-wrap'>
                     <Typography variant="h6" className="leading-4 ml-2 text-dark">{inmobiliaria}</Typography>
                     <Typography variant="small" color="blue" className="font-normal ml-2 ">
                       { isRealState? <span>Inmobiliaria</span> : <span>Dueño Directo</span>}
@@ -127,7 +128,7 @@ const CardProperty: React.FC<Props> = ({ id, title, location, images, price, inm
                 </div>
                 {/**Precio */}
                 <div className='ml-auto flex flex-col justify-end pr-3'>
-                  <Typography variant="h3" color="green" textGradient>${price}</Typography>
+                  <Typography variant="h4">${price}</Typography>
                 </div>
             </Link>
             {/** Fin Footer Card */}
