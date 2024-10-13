@@ -15,9 +15,12 @@ export function Location() {
 
     return (
         <>
-            <Button className='items-center inline-flex' variant='text' size='sm' onClick={handleOpen}>
-                <span className="material-symbols-rounded mr-2 text-primary_2 ">add_location_alt</span>
-                Ingresar ubicación
+            <Button className='text-xs p-0 hover:bg-white' variant='text' onClick={handleOpen}>
+                <Card className='items-center inline-flex flex-row my-1 px-6 py-2'>
+                <span className="material-symbols-rounded mr-2 text-primary_2 text-3xl">add_location_alt</span>
+                Añadir ubicación
+                </Card>
+
             </Button>
             <Dialog
                 size="xs"

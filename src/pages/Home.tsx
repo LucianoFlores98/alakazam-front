@@ -116,7 +116,7 @@ function Home() {
       <main className="flex flex-col w-full pl-40 space-y-3 pb-8 ">
         <PublicySlider />
 
-        <div className="flex justify-between w-full px-8">
+        <div className="flex justify-between w-full px-8 py-2">
           <Location />
           <OrderBy />
         </div>

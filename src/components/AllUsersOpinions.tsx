@@ -75,7 +75,7 @@ export function AllUsersOpinions() {
  
   return (
     <>
-      <Button onClick={handleOpen} fullWidth variant="gradient" color="indigo" className="mt-4">Ver todas las opiniones</Button>
+      <Button onClick={handleOpen} fullWidth variant="gradient" color="blue" className="mt-4">Ver todas las opiniones</Button>
       <Dialog open={open} handler={handleOpen}>
         <DialogHeader>Todas las opiniones</DialogHeader>
         <DialogBody className="h-[42rem] overflow-scroll">
