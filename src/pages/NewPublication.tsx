@@ -188,7 +188,7 @@ function NewPublication() {
               </Typography>
               <Input
                 type="text"
-                placeholder="El carpincho feliz"
+                placeholder="Posadas"
                 className="!border !border-gray-300 shadow-lg shadow-gray-900/5"
                 labelProps={{
                   className: "hidden",
@@ -216,7 +216,7 @@ function NewPublication() {
               </Typography>
               <Input
                 type="text"
-                placeholder="El carpincho feliz"
+                placeholder="Av. Siempreviva"
                 className="!border !border-gray-300 shadow-lg shadow-gray-900/5"
                 labelProps={{
                   className: "hidden",
@@ -230,7 +230,6 @@ function NewPublication() {
               </Typography>
               <Input
                 type="tel"
-                placeholder="El carpincho feliz"
                 className="!border !border-gray-300 shadow-lg shadow-gray-900/5"
                 labelProps={{
                   className: "hidden",
@@ -244,7 +243,6 @@ function NewPublication() {
               </Typography>
               <Input
                 type="text"
-                placeholder="El carpincho feliz"
                 className="!border !border-gray-300 shadow-lg shadow-gray-900/5"
                 labelProps={{
                   className: "hidden",
