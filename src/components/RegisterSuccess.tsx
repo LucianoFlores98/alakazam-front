@@ -17,7 +17,7 @@ const RegisterSuccess: React.FC<Props> = ({ data }) => {
     const handleOpen = () => setOpen(!open);
     return (
         <>
-            <Button onClick={handleOpen} className="w-1/2 self-center mb-5 my-3 bg-primary_2 rounded-lg">
+            <Button onClick={handleOpen} className="w-1/2 m-auto mb-5 my-3 bg-primary_2 rounded-lg">
                 {data.buttonText}
             </Button>
             <Dialog

@@ -9,11 +9,17 @@ import {
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/auth";
+import LoginPopUp from "./LoginPopUp";
+
+interface User {
+  id: number;
+  name: string;
+}
 
 export function UserDropdown() {
   const isAuth = useAuthStore((state) => state.isAuth);
-
   const logout = useAuthStore((state) => state.logout);
+  const user: User = {id:1, name:"Juanito el turista"};
 
   return (
     <Menu>
@@ -109,22 +115,7 @@ export function UserDropdown() {
             </MenuItem>
           </>
         ) : (
-          <Link
-            className="hover:bg-gray-200"
-            to="/login"
-          >
-            <MenuItem
-              disabled
-              className="opacity-100 flex items-center justify-start"
-            >
-                <Typography
-                  variant="small"
-                  className="text-darker opacity-60"
-                >
-                Iniciar Sesion
-                </Typography>
-            </MenuItem>
-          </Link>
+          <LoginPopUp user={user}/>
         )}
       </MenuList>
     </Menu>
