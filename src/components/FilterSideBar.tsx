@@ -174,21 +174,20 @@ export function FilterSideBar() {
   return (
     <>
       {/* Botón para abrir el Drawer */}
-      <IconButton variant="text" size="lg" onClick={openDrawer}>
-        <span className="material-symbols-rounded h-8 w-8 stroke-2 flex items-center justify-center">
-          filter_alt
-        </span>
-      </IconButton>
+      <Button variant="text" className="flex flex-col text-white " onClick={openDrawer} fullWidth>
+          <span className="material-symbols-rounded mb-1" >tune</span>
+          Filtros Avanzados
+        </Button>
 
       {/* Drawer que contiene los filtros */}
       <Drawer open={isDrawerOpen} onClose={closeDrawer} className="w-80">
         <Card
           color="transparent"
           shadow={false}
-          className="w-full h-full overflow-y-auto"
+          className=" w-full h-full overflow-y-auto pt-20 overflow-x-visible"
         >
           {/* Navbar con el titulo del drawer y boton de cerrar */}
-          <Navbar className="w-full rounded-none p-1">
+          <Navbar className="w-full rounded-none p-1 mt-5 " shadow={false}>
             <div className="flex items-center gap-4">
               <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
                 <span className="material-symbols-rounded text-[20px] align-middle">close</span>

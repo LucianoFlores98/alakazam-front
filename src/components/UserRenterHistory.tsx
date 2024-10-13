@@ -11,7 +11,7 @@ const UserRenterHistory: React.FC<Props> = ({image}) => {
             <figure className="flex justify-center items-center rounded-2xl">
                 <img src={image} alt="Card Preview" className="rounded-2xl" />
             </figure>
-                <Button className="bg-info w-full font-bold text-sm mt-4 p-3 rounded-lg hover:bg-purple-800 active:scale-95 transition-transform transform" fullWidth>Ver Publicación</Button>
+                <Button className="bg-primary w-full font-bold text-sm mt-4 p-3 rounded-lg active:scale-95 transition-transform transform" fullWidth>Ver Publicación</Button>
         </Card>
     );
 }
