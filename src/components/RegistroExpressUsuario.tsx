@@ -59,9 +59,14 @@ function RegistroExpressUsuario() {
     return (
         
         <Card className="m-5">
-            <button onClick={handleOpen} className="p-1">
-                Registrarse
-            </button>
+            <Button 
+                onClick={handleOpen} 
+                color="deep-orange"
+                variant="text"
+                className="p-0 font-bold hover:bg-transparent"
+            >
+                Registrate
+            </Button>
             <Dialog open={open} handler={handleOpen}>
             {currentStep === 1 && (
                 <>
@@ -183,7 +188,7 @@ function RegistroExpressUsuario() {
                 </div>
 
                 <div className="mx-5 text-center">
-                    <Button className="w-1/2 self-center mb-5 bg-primary_2 rounded-lg" onClick={handleContinue}>Continuar</Button>
+                    <Button className="w-1/2 m-auto mb-5 bg-primary_2 rounded-lg" onClick={handleContinue}>Continuar</Button>
                 </div>
                 </>
             )}
@@ -289,7 +294,7 @@ function RegistroExpressUsuario() {
                             />
                     </div>
                     <div className="mx-5 text-center">
-                        <Button className="w-1/2 self-center my-3 mb-5 bg-primary_2 rounded-lg" onClick={handleContinue}>Continuar</Button>
+                        <Button className="w-1/2 m-auto my-3 mb-5 bg-primary_2 rounded-lg" onClick={handleContinue}>Continuar</Button>
                     </div>
                 </>
             )}
@@ -327,7 +332,7 @@ function RegistroExpressUsuario() {
                             Para verificar que es usted por favor introduzca el codigo
                             que le enviamos mediante mensaje de texto.
                         </Typography>
-                        <Button className="bg-success my-5" disabled={secondsRemaining !== 0}
+                        <Button className="bg-success my-5 m-auto" disabled={secondsRemaining !== 0}
                             onClick={resetTimer}>Reenviar código</Button>
                         <Typography variant="h6" className="mt-5">
                             Ingresa el código
