@@ -78,7 +78,10 @@ function MyProfile() {
   const [openAcc1, setOpenAcc1] = React.useState(true);
 
   const handleOpenAcc1 = () => setOpenAcc1((cur) => !cur);
+  
+  const [openAcc2, setOpenAcc2] = React.useState(true);
 
+  const handleOpenAcc2 = () => setOpenAcc2((cur) => !cur);
 
   return(
     <div className="flex min-h-screen">
@@ -116,22 +119,27 @@ function MyProfile() {
           </AccordionBody>
         </Accordion>
 
+        <Accordion open={openAcc2}>
+          <AccordionHeader onClick={handleOpenAcc2}>Opiniones recibidas</AccordionHeader>
+          <AccordionBody>
+            <div className="flex justify-between mt-8 space-x-8 px-4">
+              <div className="flex flex-col">
+                <Typography variant="h5" className="mb-2" color="black">Opiniones</Typography>
+                <UserRating userRatings={userRatingDummyData} currentUserRating={currentUserRatingDummyData}/>
+              </div>
+              <div className="flex flex-col items-center space-y-6"> 
+                {MYUSER_REVIEWS.map(({userName, nickName, reviewComment, userProfile})=>
+                (
+                  <Review userName={userName} nickName={nickName} reviewComment={reviewComment} userProfile={userProfile}/>
+                ))}
+              </div>
+            </div>
 
-        <div className="flex justify-between mt-8 space-x-8 px-4">
-          <div className="flex flex-col">
-            <Typography variant="h5" className="mb-2" color="black">Opiniones</Typography>
-            <UserRating userRatings={userRatingDummyData} currentUserRating={currentUserRatingDummyData}/>
-          </div>
-          <div className="flex flex-col items-center space-y-6"> 
-            {MYUSER_REVIEWS.map(({userName, nickName, reviewComment, userProfile})=>
-            (
-              <Review userName={userName} nickName={nickName} reviewComment={reviewComment} userProfile={userProfile}/>
-            ))}
-          </div>
+            <AllUsersOpinions/>
+          </AccordionBody>
+        </Accordion>
 
-        </div>
-
-        <AllUsersOpinions/>
+        
 
         
 

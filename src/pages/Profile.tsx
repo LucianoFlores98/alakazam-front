@@ -11,6 +11,82 @@ import { AllUsersOpinions } from "../components/AllUsersOpinions";
 import UserBanner from "../components/UserBanner";
 import UserActivity from "../components/UserActivity";
 import UserFeaturedInfo from "../components/UserFeaturedInfo";
+import OrderBy from "../components/OrderBy";
+import CardPropertyMini from "../components/CardPropertyMini";
+
+const PROPIEDADES = [
+  {
+    id: '1',
+    property: {
+      title: 'Casa en Villa Sarita',
+      location: 'Felix Aguirre 1519, Posadas',
+      images: [
+        "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://media.admagazine.com/photos/6467b71e70d3fa4f8a2aa26c/16:9/w_2560%2Cc_limit/FedeC-LowRes7463.jpg",
+        "https://planner5d.com/blog/content/images/2024/05/disenos.departamentos.software.1.jpg",
+        "https://images.adsttc.com/media/images/6456/b87e/8c76/f501/7c64/053f/newsletter/apartamento-lucas-petit-minimo-arquitetura-e-design_2.jpg?1683404940",
+        "https://blog.mk.cl/wp-content/uploads/2023/07/deptoschicos-10.jpg",
+        "https://revistaestilopropio.com/wp-content/uploads/2020/03/Apartamento_802-5-Copiar-589x330.jpg",
+        "https://www.iproyeccion.cl/content/uploads/2023/10/diseno-departamento-moderno.jpg"
+      ],
+      price: '850.000',
+      inmobiliaria: 'Hugo Juanma'
+    }
+  },
+  {
+    id: '2',
+    property: {
+      title: 'Departamento Duplex en costa sur',
+      location: 'Casa 180, Ruta 105',
+      images: [
+        'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        "https://revistaestilopropio.com/wp-content/uploads/2020/03/Apartamento_802-5-Copiar-589x330.jpg",
+      ],
+      price: '780.000',
+      inmobiliaria: 'Hugo Juanma',
+    }
+  },
+  {
+    id: '3',
+    property: {
+      title: 'Departamento Duplex en costa sur',
+      location: 'Casa 180, Ruta 105',
+      images: [
+        'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        "https://revistaestilopropio.com/wp-content/uploads/2020/03/Apartamento_802-5-Copiar-589x330.jpg",
+      ],
+      price: '780.000',
+      inmobiliaria: 'Hugo Juanma',
+    }
+  },
+  {
+    id: '4',
+    property: {
+      title: 'Departamento Duplex en costa sur',
+      location: 'Casa 180, Ruta 105',
+      images: [
+        'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        "https://revistaestilopropio.com/wp-content/uploads/2020/03/Apartamento_802-5-Copiar-589x330.jpg",
+      ],
+      price: '780.000',
+      inmobiliaria: 'Hugo Juanma',
+    }
+  },
+  {
+    id: '5',
+    property: {
+      title: 'Departamento Duplex en costa sur',
+      location: 'Casa 180, Ruta 105',
+      images: [
+        'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        "https://revistaestilopropio.com/wp-content/uploads/2020/03/Apartamento_802-5-Copiar-589x330.jpg",
+      ],
+      price: '780.000',
+      inmobiliaria: 'Hugo Juanma',
+    }
+  },
+]
+
 
 const PROFILE_REVIEWS = [
   //Review 1
@@ -78,6 +154,14 @@ function Profile() {
 
   const handleOpenAcc1 = () => setOpenAcc1((cur) => !cur);
 
+  const [openAcc2, setOpenAcc2] = React.useState(true);
+
+  const handleOpenAcc2 = () => setOpenAcc2((cur) => !cur);
+
+  const [openAcc3, setOpenAcc3] = React.useState(true);
+
+  const handleOpenAcc3 = () => setOpenAcc3((cur) => !cur);
+
 
   return(
     <div className="flex min-h-screen">
@@ -115,10 +199,34 @@ function Profile() {
           </AccordionBody>
         </Accordion>
 
+        <Accordion open={openAcc2}>
+          <AccordionHeader onClick={handleOpenAcc2}>Otras Publicaciones</AccordionHeader>
+          <AccordionBody>
+            <div className="flex flex-col items-end space-y-4 max-h-96 overflow-y-auto">
+              <div className="flex justify-between w-full mt-2 items-end">
+              <Typography variant="h5">5 Publicaciones</Typography>
+              <OrderBy />
+              </div>
+              {PROPIEDADES.map(({ id, property }) =>
+          (
+            <CardPropertyMini 
+              id={id} 
+              title={property.title} 
+              location={property.location} 
+              images={property.images} 
+              price={property.price} 
+              inmobiliaria={property.inmobiliaria} 
+            />
+          ))}
+            </div>
+          </AccordionBody>
+        </Accordion>
 
-        <div className="flex justify-between mt-8 space-x-8 px-4">
+        <Accordion open={openAcc3} className="mt-8">
+          <AccordionHeader onClick={handleOpenAcc3}>Opiniones</AccordionHeader>
+          <AccordionBody>
+          <div className="flex justify-between mt-8 space-x-8 px-4">
           <div className="flex flex-col">
-            <Typography variant="h5" className="mb-2" color="black">Opiniones</Typography>
             <UserRating userRatings={userRatingDummyData} currentUserRating={currentUserRatingDummyData}/>
           </div>
           <div className="flex flex-col items-center space-y-6"> 
@@ -131,6 +239,8 @@ function Profile() {
         </div>
 
         <AllUsersOpinions/>
+          </AccordionBody>
+        </Accordion>
 
         
 

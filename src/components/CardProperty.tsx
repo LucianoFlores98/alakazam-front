@@ -77,7 +77,7 @@ const CardProperty: React.FC<Props> = ({ id, title, location, images, price, inm
   
           {/**Card Main content  */} 
           <main className="px-2 pb-2 ">
-          <Link to={`/publication/${id}`}>
+          <Link to={`/publication/${id}*`}>
             {/**Header Main content  */} 
             <header className="mt-2">
               {/**Ubicación */}

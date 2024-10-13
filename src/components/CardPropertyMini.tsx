@@ -109,12 +109,12 @@ const CardPropertyMini: React.FC<Props> = ({ id, title, location, images, price,
                     {/* Inmobiliaria */}
                     <Link to="/real-state" className="mt-auto flex flex-col items-center">
                         <div className='flex items-center w-full'>
-                            <Avatar src="https://docs.material-tailwind.com/img/face-2.jpg" alt="avatar" size='sm' />
+                            <Avatar src="https://media.istockphoto.com/id/1148861340/es/foto/joven-hipster-macho-con-capucha-amarilla-sonriendo-y-posando-con-los-brazos-cruzados-sobre.jpg?s=1024x1024&w=is&k=20&c=HmRBRjuA5ut4Wu6g2w08_Iw4uUn7dFzrfB6sJKZyOBY=" alt="avatar" size='sm' />
                             <div className='ml-2 w-full'>
                                 <Typography variant="h6" className="leading-4 text-dark text-sm">{inmobiliaria}</Typography>
 
                                 <Typography variant="small" color="blue" className="font-normal text-xs">
-                                    Inmobiliaria
+                                    Dueño Directo
                                     <span className="material-symbols-rounded text-info align-middle text-sm">verified</span>
                                 </Typography>
                             </div>
