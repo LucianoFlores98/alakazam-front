@@ -1,22 +1,7 @@
-import { useState } from "react";
-import {
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-  ListItem,
-  Typography,
-  IconButton,
-  Drawer,
-  Card,
-  Radio,
-  Checkbox,
-  ListItemPrefix,
-  Button,
-  Navbar,
-  Switch,
-
-} from "@material-tailwind/react";
+import { Accordion, AccordionBody, AccordionHeader, Button, Card, Checkbox, ListItem, ListItemPrefix, Navbar, Radio, Switch, Typography } from "@material-tailwind/react";
 import SearchBar from "./SearchBar";
+import { useState } from "react";
+
 
 // Definimos el tipo de categoría
 type categoryItemsType = {
@@ -102,28 +87,8 @@ const categoryItems: categoryItemsType[] = [
   },
 ];
 
-export function FilterSideBar() {
-  const [open, setOpen] = useState(0);
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+const FilterBarNoDrawer = () =>{
   const [isSwitchOn, setIsSwitchOn] = useState(false);
-
-  // Maneja la apertura de los acordeones
-  const handleOpen = (value: number) => {
-    setOpen(open === value ? 0 : value);
-  };
-
-  // Abre y cierra el drawer
-  const openDrawer = () => {
-    setIsDrawerOpen(true);
-    document.body.style.overflow = "hidden";
-  };
-  const closeDrawer = () => {
-    setIsDrawerOpen(false);
-    document.body.style.overflow = "";
-  };
-
-  const handleSwitchChange = () => setIsSwitchOn(!isSwitchOn);
-
   // Función que renderiza los inputs según el tipo
   const renderInput = (category: string[], inputType: string) => {
     return category.map((item, idx) => {
@@ -170,17 +135,15 @@ export function FilterSideBar() {
     });
   };
 
-  return (
-    <>
-      {/* Botón para abrir el Drawer */}
-      <Button variant="text" className="flex flex-col text-white " onClick={openDrawer} fullWidth>
-          <span className="material-symbols-rounded mb-1" >tune</span>
-          Filtros Avanzados
-        </Button>
+  const handleSwitchChange = () => setIsSwitchOn(!isSwitchOn);
 
-      {/* Drawer que contiene los filtros */}
-      <Drawer open={isDrawerOpen} onClose={closeDrawer} className="w-80">
-        <Card
+    // Maneja la apertura de los acordeones
+    const handleOpen = (value: number) => {
+      setOpen(open === value ? 0 : value);
+    };
+
+  return(
+    <Card
           color="transparent"
           shadow={false}
           className=" w-full h-full overflow-y-auto pt-20 overflow-x-visible"
@@ -188,9 +151,7 @@ export function FilterSideBar() {
           {/* Navbar con el titulo del drawer y boton de cerrar */}
           <Navbar className="w-full rounded-none p-1 mt-5 " shadow={false}>
             <div className="flex items-center gap-4">
-              <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
-                <span className="material-symbols-rounded text-[20px] align-middle">close</span>
-              </IconButton>
+
               <Typography variant="h6" color="blue-gray">
                 Filtros
               </Typography>
@@ -287,7 +248,7 @@ export function FilterSideBar() {
 
           </Navbar>
         </Card>
-      </Drawer>
-    </>
-  );
+  )
 }
+
+export default FilterBarNoDrawer;
